@@ -1,6 +1,6 @@
 <?php
 header('Content-Type:text/html;charset=utf-8');
-$xmldata =file_get_contents("你的sitemap.xml链接");
+$xmldata =file_get_contents("https://elliotoplit.github.io/sitemap.xml");
 $xmlstring = simplexml_load_string($xmldata,'SimpleXMLElement',LIBXML_NOCDATA);
 $value_array = json_decode(json_encode($xmlstring),true);
 $url = [];
