@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="埃里奥特的小木屋">
 <meta property="og:description" content="个人博客的搭建在有的程序员眼里是一个累赘的事情但拥有个人博客对自己知识框架的持续搭建有着深远的影响下面我来讲解一下hexo博客搭建的教程主页展示  What We Need?">
 <meta property="og:locale">
-<meta property="og:image" content="https://gitee.com/elliotoplit/blogpicture/raw/master/blogpage.png">
+<meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/blogpage.png">
 <meta property="article:published_time" content="2022-03-03T12:26:44.000Z">
-<meta property="article:modified_time" content="2022-03-30T06:22:31.415Z">
+<meta property="article:modified_time" content="2022-04-01T05:28:31.952Z">
 <meta property="article:author" content="Li Hao">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/elliotoplit/blogpicture/raw/master/blogpage.png">
+<meta name="twitter:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/blogpage.png">
   
     <link rel="alternative" href="/atom.xml" title="埃里奥特的小木屋" type="application/atom+xml">
   
@@ -246,7 +246,7 @@
             </center>
             
                       <p>个人博客的搭建在有的程序员眼里是一个累赘的事情<br>但拥有个人博客对自己知识框架的持续搭建有着深远的影响<br>下面我来讲解一下hexo博客搭建的教程<br><strong>主页展示</strong></p>
-<p><img src="https://gitee.com/elliotoplit/blogpicture/raw/master/blogpage.png" alt="Mainpage"></p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/blogpage.png" alt="Mainpage"></p>
 <h2 id="What-We-Need"><a href="#What-We-Need" class="headerlink" title="What We Need?"></a>What We Need?</h2><span id="more"></span>
 <pre><code>node.js：Hexo的生成需要node.js的支持 官网下载链接：http://nodejs.cn/download/)
 npm ：下载cnpm
@@ -260,9 +260,7 @@ cmd：命令行程序 同gitbash
 <p>首先官网下载适合自己系统的Node.js版本（博主是Windows64的就下win64版本）<br>下载后安装 安装时把安装位置改在D盘（安装应用尽量别在C盘，系统盘是系统自己的存储空间）<br>之后一直点击下一步<br>安装好之后不仅有node.js，npm（包管理器）也同时安装完毕<br>然后打开cmd命令行输入node -v(打开cmd：先win + R，再输入cmd即可 )<br>若弹出版本号表示nodejs安装成功<br>之后再用 npm -v检查nmp</p>
 <p>还是cmd窗口，利用npm安装cnmp 输入下行代码 （淘宝镜像）<br>  npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a><br>安装好后敲入cnmp -v检查安装是否弹出版本号（弹出即成功）</p>
 <p>再利用cnpm安装hexo框架，输入以下代码<br>cnmp install -g hexo-cli<br>windows无法运行脚本的输入set-ExecutionPolicy RemoteSigned回车，把策略改成A<br>还是报错就多装几遍<br>hexo安装成功后用 hexo -v检查一下版本<br>安装成功，即环境配置完毕</p>
-<hr>
-<h2 id="PART-2-初始化博客"><a href="#PART-2-初始化博客" class="headerlink" title="PART 2 初始化博客"></a>PART 2 初始化博客</h2><hr>
-<p>现在终于可以开始正式搭建博客啦<br>输入chdir查询一下是否在个人用户目录下(弹出类似如下内容，豪大大只是我的用户名而已，也不一定是c盘。不一样就重新打开cmd再查询）<br>C:\Users\豪大大</p>
+<h2 id="PART-2-初始化博客"><a href="#PART-2-初始化博客" class="headerlink" title="PART 2 初始化博客"></a>PART 2 初始化博客</h2><p>现在终于可以开始正式搭建博客啦<br>输入chdir查询一下是否在个人用户目录下(弹出类似如下内容，豪大大只是我的用户名而已，也不一定是c盘。不一样就重新打开cmd再查询）<br>C:\Users\豪大大</p>
 <p>在该目录下输入以下代码建立博客的根文件夹（mkdir：创建文件夹）<br>mkdir blog<br>可以打开C盘去看看文件夹是否存在（地址如上）<br>如果以后遇见一些问题烂尾了也可以选择直接删除blog文件夹后在此重新开始</p>
 <p>cmd里输入cd blog进入blog文件夹 输入<br>hexo init<br>若失败则安装git 链接 <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><br>在gitbash（类似于cmd程序）用同样的方法进入blog （cd 自己blog的路径 例如：cd C:\Users\豪大大）<br>输入 hexo init（这一步是初始化博客）<br>成功后尾行会显示 start blogging with hexo</p>
 <p>再直接打开blog文件夹查看 你会发现系统给你生成了很多内容</p>
@@ -273,25 +271,25 @@ cmd：命令行程序 同gitbash
 <p>在cmd的blog文件夹下用如下命令新建一篇博客<br>hexo new post “我的第一篇文章”<br>去blog&#x2F;source&#x2F;_posts&#x2F;文件夹下会发现一篇新的博客<br>之后用vs code打开编写<br>补充：&#x2F;&#x2F;vs code 下载链接 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a><br>     &#x2F;&#x2F;下载好之后安装一个markdown插件 ，用于blog编写，别用记事本<br>     &#x2F;&#x2F;打开vscode按键盘“Ctrl + Shift + P”，输入“ Markdown ”， 任意安装一个Markdown插件<br>     &#x2F;&#x2F;有sublime text 也行</p>
 <p>打开后文章会有title date tags等基本内容<br>这些内容的冒号后面都有空格！修改时不要删掉空格，不然后面报错<br>在下面就可以书写自己的blog内容了（markdown书写语法之后可以在百度上学习一下，以便做出结构优良的博客）<br>然后ctrl s保存 退出<br>在cmd中用ctrl c停止服务，不然无法用hexo<br>若cmd关闭了再打开cmd 输入cd blog进入自己的blog文件夹（cd是进入文件夹，要根据自己blog的位置进入）</p>
 <p>再分步输入（下面三组内容很重要，是博客编写修整的常用）<br>hexo clean<br>hexo g<br>hexo s<br>确保每组里面没有报错 否则会失败<br>再打开最后弹出的链接刷新一下，就可以看到新发布的博文</p>
-<hr>
 <h2 id="PART-4-将博客布置到远端"><a href="#PART-4-将博客布置到远端" class="headerlink" title="PART 4 将博客布置到远端"></a>PART 4 将博客布置到远端</h2><hr>
 <p>我们不可能永远输入localhost：4000去访问自己博客<br>也得在其他的设备上也生效<br>于是我们可以将blog部署到github上托管<br>登录自己的github  <a target="_blank" rel="noopener" href="https://github.com/">官网链接</a><br>点击个人主页右上角＋号的new repository新建仓库</p>
 <p><strong>其中要注意的是</strong><br>repository name 必须是 自己github的用户名.github.io<br>例如博主的仓库名 Elliotoplit.github.io</p>
 <p>description是仓库描述随便写点啥<br>例如：我的第一个博客<br>下面的属性选public<br>点击create 一个新的空仓库就完成了</p>
 <p>返回cmd 用cnmp下载git的部署插件，命令如下<br>cnpm install –save hexo-deployer-git<br>不行的话可以用npm下载，将上面代码的cnmp改成npm即可<br>安装好之后直接打开文件夹 找到blog文件夹下的_config文件 用vscode打开<br>找到里面的##deployment<br>参照下面带码将空缺内容补齐<br> deploy:<br>   type: git<br>   repo: <a target="_blank" rel="noopener" href="https://github.com/Elliotoplit/Elliotoplit.github.io.git">https://github.com/Elliotoplit/Elliotoplit.github.io.git</a><br>   branch: master<br><strong>注意！</strong>冒号后面有空格 type后面 如果有引号就写在引号里 repo的链接是刚刚github上自己创建的库的链接<br>然后保存退出<br>在cmd中blog文件夹下输入hexo d<br>deploy：是部署的意思 hexo d之后没反应就把上面type的git用单引号包起来<br>之后会弹出窗口让你登录github，没有弹出窗口的可以在cmd中输入账号及密码<br>&#x2F;&#x2F;不想每次输账号的话，请在git里设置好<br>开始推送…<br>推送成功之后打开github的那个库里面可发现许多刚导入到内容<br>再把自己的仓库名输入到浏览器就可看到云端的博客了<br>例如elliotoplit.github.io<br>不行转换为完成的url 前面加https:&#x2F;&#x2F;</p>
-<h2 id="到此-博客部署成功！"><a href="#到此-博客部署成功！" class="headerlink" title="到此 博客部署成功！"></a>到此 博客部署成功！</h2><h2 id="PART-5-修改主题"><a href="#PART-5-修改主题" class="headerlink" title="PART 5 修改主题"></a>PART 5 修改主题</h2><hr>
-<p>推荐一个主题yilia<br>在cmd的blog目录下输入以下命令从GitHub上克隆yilia主题至themes文件夹下单yilia内<br>git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia<br>再打开blog目录下的_config.yml<br>拖到最下面有一个theme<br>将默认的landscape改成yilia</p>
+<p>到此 博客部署成功！</p>
+<h2 id="PART-5-修改主题"><a href="#PART-5-修改主题" class="headerlink" title="PART 5 修改主题"></a>PART 5 修改主题</h2><hr>
+<p>推荐一个主题yilia<br>在cmd的blog目录下输入以下命令从GitHub上克隆yilia主题至themes文件夹下单yilia内<br><code>git clone &lt;https://github.com/litten/hexo-theme-yilia.git&gt; themes/yilia</code><br>再打开blog目录下的_config.yml<br>拖到最下面有一个theme<br>将默认的landscape改成yilia</p>
 <p>如果无梯子很慢或者没法下载的话直接浏览器打开github.com&#x2F;litten&#x2F;hexo-theme-yilia<br>点击绿色code按键里的download zip 下载到blog&#x2F;theme下<br>解压到当前目录<br>删除zip压缩包<br>赋值解压后的包名<br>打开blog目录下的_config.yml<br>拖到最下面有一个theme<br>将默认的landscape改成包名（直接粘贴）</p>
 <p>保存退出</p>
 <p>再分布执行<br>hexo clean<br>hexo g<br>hexo s<br>开始server之后可以打开给出的localhost：4000链接查看主题是否切换成功<br>如成功就ctrl c 停止server<br>然后输入hexo d部署</p>
 <p>个人博客就搭建完成啦<br>这个过程肯定大家都会遇到很多问题，但不要放弃<br>报错时复制错误反馈到百度 csdn GitHub上去寻找解决方法<br>也可以在我的博客主页联系我</p>
-<h2 id="常见问题及补充"><a href="#常见问题及补充" class="headerlink" title="常见问题及补充"></a>常见问题及补充</h2><h3 id="hexod时报错解决方法"><a href="#hexod时报错解决方法" class="headerlink" title="hexod时报错解决方法"></a>hexod时报错解决方法</h3><ul>
+<h2 id="PART-6-常见问题及补充"><a href="#PART-6-常见问题及补充" class="headerlink" title="PART 6 常见问题及补充"></a>PART 6 常见问题及补充</h2><h3 id="6-1-hexo-d-时报错的解决方法"><a href="#6-1-hexo-d-时报错的解决方法" class="headerlink" title="6.1 hexo d 时报错的解决方法"></a>6.1 hexo d 时报错的解决方法</h3><ul>
 <li>hexo s后blog没问题 但hexo d时候报错就稍后再试吧，有时候会因为网络原因部署失败。</li>
 <li>Hexo d 部署出现错误err-Error-Spawn-failed解决方式:<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48759664/article/details/119480266?spm=1001.2014.3001.5502">Spawn-failed</a></li>
 <li>也可以用 git bash 试试 （gitbash和cmd类似，建议备用）</li>
 <li>若长时间停止在nothing to commit, working tree clean。可能你的项目数据已经部署成功，此时建议打开网站查询效果。</li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<h3 id="6-2-其他细节"><a href="#6-2-其他细节" class="headerlink" title="6.2 其他细节"></a>6.2 其他细节</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143586985">点击此处学习Markdown语法教程</a></li>
 <li>hexo s后要ctrl c停止才能hexo d</li>
 <li>几乎一切步骤都基于blog文件夹下，cd 进入 ，cd..退一级，请相互搭配使用</li>
@@ -468,7 +466,7 @@ cmd：命令行程序 同gitbash
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-We-Need"><span class="toc-number">1.</span> <span class="toc-text">What We Need?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-1-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">PART 1 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-number">3.</span> <span class="toc-text">PART 2 初始化博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-3-%E5%8F%91%E8%A1%A8%E5%8D%9A%E5%AE%A2"><span class="toc-number">4.</span> <span class="toc-text">PART 3 发表博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-4-%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%B8%83%E7%BD%AE%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="toc-number">5.</span> <span class="toc-text">PART 4 将博客布置到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B0%E6%AD%A4-%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F%EF%BC%81"><span class="toc-number">6.</span> <span class="toc-text">到此 博客部署成功！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-5-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">PART 5 修改主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A1%A5%E5%85%85"><span class="toc-number">8.</span> <span class="toc-text">常见问题及补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexod%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">8.1.</span> <span class="toc-text">hexod时报错解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">8.2.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-We-Need"><span class="toc-number">1.</span> <span class="toc-text">What We Need?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-1-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">PART 1 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-number">3.</span> <span class="toc-text">PART 2 初始化博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-3-%E5%8F%91%E8%A1%A8%E5%8D%9A%E5%AE%A2"><span class="toc-number">4.</span> <span class="toc-text">PART 3 发表博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-4-%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%B8%83%E7%BD%AE%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="toc-number">5.</span> <span class="toc-text">PART 4 将博客布置到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-5-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">PART 5 修改主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PART-6-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A1%A5%E5%85%85"><span class="toc-number">7.</span> <span class="toc-text">PART 6 常见问题及补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-hexo-d-%E6%97%B6%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 hexo d 时报错的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%85%B6%E4%BB%96%E7%BB%86%E8%8A%82"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 其他细节</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

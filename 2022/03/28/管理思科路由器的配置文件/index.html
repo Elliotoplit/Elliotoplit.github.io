@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="埃里奥特的小木屋">
 <meta property="og:description" content="配置文件基本操作 运行配置命令show running-config 启动配置命令show startup-config">
 <meta property="og:locale">
-<meta property="og:image" content="http://r9ern1xiq.hn-bkt.clouddn.com/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
-<meta property="og:image" content="http://r9ern1xiq.hn-bkt.clouddn.com/ServerTftpConfig.png">
-<meta property="og:image" content="http://r9ern1xiq.hn-bkt.clouddn.com/DirAndDelete.png">
+<meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/ServerTftpConfig.png">
+<meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/DirAndDelete.png">
 <meta property="article:published_time" content="2022-03-28T13:25:13.000Z">
-<meta property="article:modified_time" content="2022-03-30T06:12:14.464Z">
+<meta property="article:modified_time" content="2022-04-01T05:00:54.603Z">
 <meta property="article:author" content="Li Hao">
 <meta property="article:tag" content="思科">
 <meta property="article:tag" content="路由器配置">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://r9ern1xiq.hn-bkt.clouddn.com/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta name="twitter:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
   
     <link rel="alternative" href="/atom.xml" title="埃里奥特的小木屋" type="application/atom+xml">
   
@@ -208,7 +208,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">265字</span>
+      <span class="post-count">273字</span>
     </span>
   </span>
 
@@ -256,17 +256,17 @@
 <ul>
 <li><strong>保存当前运行配置文件数据到启动配置文件</strong></li>
 </ul>
-<p>命令：<code>copy running-config startup-config</code> 或者<code>write</code><br>注意：以上命令要在<em><strong>特权模式</strong></em>下操作</p>
+<p>命令：<code>copy running-config startup-config</code> 或者<code>write</code><br>注意：以上命令要在<em><strong>特权模式</strong></em>下操作<a target="_blank" rel="noopener" href="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/">https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/</a></p>
 <ul>
 <li><p><strong>删除启动配置文件</strong><br><code>erase startup-config</code></p>
 </li>
 <li><p><strong>写入启动配置文件</strong><br><code>write</code></p>
 </li>
-<li><p><strong>将路由器文件保存到服务器</strong>192.168.1.88<br><code>copy startup-config tftp</code><br>之后输入服务器IP，如图所示<br><img src="http://r9ern1xiq.hn-bkt.clouddn.com/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="配置到服务器"><br>保存到服务器成功，且服务器配置的tftp里可以找到ipdata-config文件<br><img src="http://r9ern1xiq.hn-bkt.clouddn.com/ServerTftpConfig.png" alt="服务器tftp的配置文件"></p>
+<li><p><strong>将路由器文件保存到服务器</strong>192.168.1.88<br><code>copy startup-config tftp</code><br>之后输入服务器IP，如图所示<br><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/router%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="配置到服务器"><br>保存到服务器成功，且服务器配置的tftp里可以找到ipdata-config文件<br><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/ServerTftpConfig.png" alt="服务器tftp的配置文件"></p>
 </li>
 <li><p><strong>查看闪存</strong><br><code>dir</code><br><code>show flash</code></p>
 </li>
-<li><p><strong>删除文件</strong> (delete跟文件名和其格式)<br><code>delete xxx.oo</code><br>图片演示查看闪存(flash)里的文件，使用delete删除IOS里的文件（后缀为.bin）然后重启查看情况。<br><img src="http://r9ern1xiq.hn-bkt.clouddn.com/DirAndDelete.png" alt="dir&amp;delete"></p>
+<li><p><strong>删除文件</strong> (delete跟文件名和其格式)<br><code>delete xxx.oo</code><br>图片演示查看闪存(flash)里的文件，使用delete删除IOS里的文件（后缀为.bin）然后重启查看情况。<br><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/DirAndDelete.png" alt="dir&amp;delete"></p>
 </li>
 </ul>
 
