@@ -203,7 +203,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">0字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -212,7 +212,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -238,7 +238,318 @@
               </p>
             </center>
             
-                      
+                      <h2 id="1-CSS-简介"><a href="#1-CSS-简介" class="headerlink" title="1 CSS 简介"></a>1 CSS 简介</h2><p>CSS： 指层叠样式表 (<strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets)</p>
+<p>作用 ：定义如何显示HTML元素</p>
+<p>more：</p>
+<ul>
+<li><p>样式通常存储在<strong>样式表</strong>中</p>
+</li>
+<li><p>外部样式表通常存储在 <strong>CSS 文件</strong>中</p>
+</li>
+</ul>
+<p>基本结构：选择器 { 属性：属性值；属性：属性值；}</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/cssstructure.jpg" alt="img"></p>
+<p>选择器:一般是html元素</p>
+<p><strong>声明</strong>：一个选择器可以写入多个声明，每个声明用<strong>分号</strong>隔开</p>
+<p><strong>属性属性值</strong>：之间用<strong>冒号</strong>隔开</p>
+<wbr>
+
+<p>CSS注释:以 <strong>&#x2F;*</strong> 开始, 以 ***&#x2F;** 结束</p>
+<h2 id="2-CSS-选择器"><a href="#2-CSS-选择器" class="headerlink" title="2 CSS 选择器"></a>2 CSS 选择器</h2><p>作用：如果要在 HTML 元素中使用 CSS  样式，就必须在该元素设置 id 或者 class 选择器</p>
+<h3 id="2-1-id选择器"><a href="#2-1-id选择器" class="headerlink" title="2.1 id选择器"></a>2.1 id选择器</h3><p>css中的语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#id值</span><br><span class="line">&#123;</span><br><span class="line">	text-align:&quot;center&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：id尽量不要数值开头，数字开头的ID在 Mozilla&#x2F;Firefox 浏览器中不起作用</p>
+<h3 id="2-2-class选择器"><a href="#2-2-class选择器" class="headerlink" title="2.2 class选择器"></a>2.2 class选择器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.wenbencenter&#123;</span><br><span class="line">	textalign:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：类名尽量不要数值开头，数字开头的ID在 Mozilla&#x2F;Firefox 浏览器中不起</p>
+<h2 id="3-CSS-插入"><a href="#3-CSS-插入" class="headerlink" title="3 CSS 插入"></a>3 CSS 插入</h2><p>CSS有三种插入方法</p>
+<h3 id="3-1-外部样式表"><a href="#3-1-外部样式表" class="headerlink" title="3.1 外部样式表"></a>3.1 外部样式表</h3><p>英文：External Style Sheet</p>
+<p>使用条件：样式需要运用于多个页面</p>
+<p>使用方法：在head 的 link 标签里填写如下属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">herf</span>=<span class="string">&quot;mystyle.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-内部样式表"><a href="#3-2-内部样式表" class="headerlink" title="3.2 内部样式表"></a>3.2 内部样式表</h3><p>英文：Internal Style Sheet</p>
+<p>使用条件：样式需要运用于页面内多个元素</p>
+<p>使用方法：在head 的style 元素里填写所需属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">p</span> &#123;backgound-image:<span class="built_in">url</span>(<span class="string">&quot;xxxxx&quot;</span>)&#125;;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;<span class="attribute">color</span>:red&#125;;</span></span><br><span class="line"><span class="language-css">    &lt;style&gt;</span></span><br><span class="line"><span class="language-css">&lt;/head&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-内联样式"><a href="#3-3-内联样式" class="headerlink" title="3.3 内联样式"></a>3.3 内联样式</h3><p>英文：Inline Style </p>
+<p>使用条件：样式只单次运用于本页面的一个元素<em><strong>（一次性）</strong></em></p>
+<p>使用方法：在该元素的头标签内添加 style属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center&quot;</span>&gt;</span>内联样式<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-4-三种方法的优先级"><a href="#3-4-三种方法的优先级" class="headerlink" title="3.4 三种方法的优先级"></a>3.4 三种方法的优先级</h3><p style="text-align:center"><b>内联样式    >    内部样式    > 外部样式 >    浏览器默认样式</b></p>
+
+<h2 id="4-CSS-背景"><a href="#4-CSS-背景" class="headerlink" title="4 CSS 背景"></a>4 CSS 背景</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th>属性值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">background-image</td>
+<td>url(“xxx”)</td>
+<td align="center">背景图片</td>
+</tr>
+<tr>
+<td align="left">backgound-color</td>
+<td>rgb</td>
+<td align="center">背景颜色</td>
+</tr>
+<tr>
+<td align="left">backgound-repeat</td>
+<td>no-repeat</td>
+<td align="center">不平铺</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>repeat-x</td>
+<td align="center">向x轴平铺</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>repeat-y</td>
+<td align="center">向y轴平铺</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>repeat-z</td>
+<td align="center">向x，y轴平铺</td>
+</tr>
+<tr>
+<td align="left">background-attachment</td>
+<td>scroll默认</td>
+<td align="center">背景图随页面滚动</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>fixed</td>
+<td align="center">不随页面滚动</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>local</td>
+<td align="center">随元素内容滚动</td>
+</tr>
+<tr>
+<td align="left">backgound-postion</td>
+<td>left&#x2F;right&#x2F;center&#x2F;top&#x2F;bottom&#x2F;xx%</td>
+<td align="center">值1是水平位置，值2是垂直</td>
+</tr>
+<tr>
+<td align="left">background：</td>
+<td>顺序 c i  r a p</td>
+<td align="center">属性简写，可部分省略</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    background-image: url(&quot;http://static.runoob.com/images/mix/paper.gif&quot;);</span><br><span class="line">	background-repeat:repeat-y;/*只向y轴平铺*/</span><br><span class="line">	/*背景简写示例*/</span><br><span class="line">	background:#ffffff url(&#x27;img_tree.png&#x27;) no-repeat right top;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-CSS-文本"><a href="#5-CSS-文本" class="headerlink" title="5 CSS 文本"></a>5 CSS 文本</h2><table>
+<thead>
+<tr>
+<th>文本属性</th>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>rgb</td>
+<td>文字颜色</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>right&#x2F;center&#x2F;justify..</td>
+<td>文字对齐方式</td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>underline</td>
+<td>底部划线</td>
+</tr>
+<tr>
+<td></td>
+<td>line-through</td>
+<td>中间划线</td>
+</tr>
+<tr>
+<td></td>
+<td>overline</td>
+<td>顶部划线</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>uppercase&#x2F;lowercase&#x2F;capitalize</td>
+<td>大写&#x2F;小写&#x2F;词帽式</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>px</td>
+<td>文本缩进</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>px</td>
+<td>单词间距</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>px</td>
+<td>字母间距</td>
+</tr>
+<tr>
+<td>vertical-align</td>
+<td>top&#x2F;sub&#x2F;text-top</td>
+<td>设置元素的垂直对齐方式</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>120%</td>
+<td>行高</td>
+</tr>
+<tr>
+<td>text-shadow</td>
+<td>2px 2px 2px #ff0000</td>
+<td>文字阴影x&#x2F;y&#x2F;blur模糊&#x2F;颜色</td>
+</tr>
+</tbody></table>
+<h2 id="6-CSS-字体"><a href="#6-CSS-字体" class="headerlink" title="6 CSS 字体"></a>6 CSS 字体</h2><table>
+<thead>
+<tr>
+<th align="center">字体属性</th>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">font-family</td>
+<td>“Times New Roman”, Times, serif</td>
+<td>有空格的<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css-websafe-fonts.html">字体</a>名字加引号</td>
+</tr>
+<tr>
+<td align="center">font-style</td>
+<td>italic&#x2F;normal</td>
+<td>斜体字</td>
+</tr>
+<tr>
+<td align="center">font-size</td>
+<td>px</td>
+<td>字体大小</td>
+</tr>
+<tr>
+<td align="center">font-weight</td>
+<td>normal&#x2F;lighter&#x2F;weight&#x2F;bold&#x2F;900</td>
+<td>字体粗细</td>
+</tr>
+</tbody></table>
+<p> <strong>补充:用em单位来设置字体大小</strong></p>
+<p>为了避免Internet Explorer 中无法调整文本的问题，许多开发者使用 em 单位代替像素。</p>
+<p>em的尺寸单位由W3C建议。</p>
+<p>1em和当前字体大小相等。在浏览器中默认的文字大小是16px。</p>
+<ul>
+<li><strong>转换比例:1em&#x3D;16px</strong></li>
+</ul>
+<h2 id="7-CSS-链接"><a href="#7-CSS-链接" class="headerlink" title="7 CSS 链接"></a>7 CSS 链接</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>a:link</strong></td>
+<td>text-decoration:none去线</td>
+<td>原始</td>
+</tr>
+<tr>
+<td><strong>a:visited</strong></td>
+<td>background-color:#B2FF99;</td>
+<td>已访问过时</td>
+</tr>
+<tr>
+<td><strong>a:hover</strong></td>
+<td>…</td>
+<td>鼠标放上时</td>
+</tr>
+<tr>
+<td><strong>a:active</strong></td>
+<td>…</td>
+<td>点击连接时</td>
+</tr>
+</tbody></table>
+<p>顺序规定:从上到下 <strong>L</strong>o<strong>V</strong>e &amp; <strong>H</strong> <strong>A</strong> te</p>
+<h2 id="8-CSS-列表"><a href="#8-CSS-列表" class="headerlink" title="8 CSS 列表"></a>8 CSS 列表</h2><table>
+<thead>
+<tr>
+<th>列表样式</th>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>list-style-type</td>
+<td>circle&#x2F;square&#x2F;</td>
+<td>无序列表项图案</td>
+</tr>
+<tr>
+<td></td>
+<td>upper-roman&#x2F;lower-alpha</td>
+<td>有序列表图案</td>
+</tr>
+<tr>
+<td>list-style-image</td>
+<td>url</td>
+<td>列表项自定义图案</td>
+</tr>
+</tbody></table>
+<h2 id="9-CSS-表格"><a href="#9-CSS-表格" class="headerlink" title="9 CSS 表格"></a>9 CSS 表格</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="center">属性值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>border-collapse</td>
+<td align="center">collapse</td>
+<td align="center">相邻边框折叠</td>
+</tr>
+<tr>
+<td>border</td>
+<td align="center">1px solid black</td>
+<td align="center">border简写</td>
+</tr>
+<tr>
+<td>padding</td>
+<td align="center">px</td>
+<td align="center">留白</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="10-CSS-盒子模型"><a href="#10-CSS-盒子模型" class="headerlink" title="10 CSS 盒子模型"></a>10 CSS 盒子模型</h2><p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/cssbox-model.gif" alt="CSS box-model"></p>
+<ul>
+<li><strong>Margin(外边距)</strong> - 清除边框外的区域，外边距是透明的。</li>
+<li><strong>Border(边框)</strong> - 围绕在内边距和内容外的边框。</li>
+<li><strong>Padding(内边距)</strong> - 清除内容周围的区域，内边距是透明的。</li>
+<li><strong>Content(内容)</strong> - 盒子的内容，显示文本和图像。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: lightgrey;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border</span>: <span class="number">25px</span> solid green;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这里是盒子内的实际内容。有 25px 内间距，25px 外间距、25px 绿色边框。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果:</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/cssbox.png" alt="image-20220409191317592"></p>
+<p><strong>总元素的宽度&#x3D;宽度+左填充+右填充+左边框+右边框+左边距+右边距</strong></p>
+
                         
 
                           
@@ -246,6 +557,25 @@
         <div class="article-info article-info-index">
           
               
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">样式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
                 
 
                   
@@ -1607,6 +1937,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">样式</a>
               </li>
             
             <div class="clearfix"></div>
