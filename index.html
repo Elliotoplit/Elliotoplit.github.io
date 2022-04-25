@@ -182,6 +182,339 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaScript语法结构"
+  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+          <!--  -->
+          
+            <a href="/2022/04/19/JavaScript%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2022-04-19T10:22:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-19</time>
+</a>
+              
+
+                <!-- 需要添加的位置 -->
+                <!-- 开始添加字数统计-->
+                
+                  <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">999字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+                    
+                      <!-- 添加完成 -->
+
+                      
+
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <center>
+              <p>
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2022/04/19/JavaScript%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84/">JavaScript语法结构</a>
+    </h1>
+  
+
+              </p>
+            </center>
+            
+                      <h2 id="1-JavaScript简介"><a href="#1-JavaScript简介" class="headerlink" title="1 JavaScript简介"></a>1 JavaScript简介</h2><h3 id="1-1-前端三件套"><a href="#1-1-前端三件套" class="headerlink" title="1.1 前端三件套"></a>1.1 前端三件套</h3><ol>
+<li><strong>HTML</strong> 定义了网页的内容  <strong>(英雄)</strong></li>
+<li><strong>CSS</strong> 描述了网页的布局 <strong>(皮肤)</strong></li>
+<li><strong>JavaScript</strong> 控制了网页的行为**(技能)**</li>
+</ol>
+<h3 id="1-2-JavaScript-简介"><a href="#1-2-JavaScript-简介" class="headerlink" title="1.2 JavaScript 简介"></a>1.2 JavaScript 简介</h3><ul>
+<li><p>JavaScript 是一种<strong>轻量级</strong>的编程语言。</p>
+</li>
+<li><p>JavaScript 是可插入 HTML 页面的编程代码。</p>
+</li>
+<li><p>JavaScript 由 Brendan Eich 发明。它于 1995 年出现在 Netscape 中（该浏览器已停止更新），并于 1997 年被 ECMA（一个标准协会）采纳。</p>
+</li>
+</ul>
+<h3 id="1-3-用法"><a href="#1-3-用法" class="headerlink" title="1.3 用法"></a>1.3 用法</h3><ul>
+<li><p>HTML 中的脚本必须位于 <code>&lt;script&gt;</code> 与 <code>&lt;/script&gt;</code> 标签之间。</p>
+</li>
+<li><p>脚本可被放置在 HTML 页面的<code> &lt;body&gt;</code> 和 <code>&lt;head&gt; </code>部分中。</p>
+<p>通常的做法<strong>是把函数</strong>放入 <head>** 部分中，或者放在<strong>页面底部</strong>。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</p>
+</li>
+<li><p>将脚本单独放入js文件，然后在head或者body标签里用<code>&lt;script&gt;</code>引入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;url&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-JavaScript-输出"><a href="#2-JavaScript-输出" class="headerlink" title="2 JavaScript 输出"></a>2 JavaScript 输出</h2><p>JavaScript 没有任何打印或输出函数，但可以通过一下不同方式输出数据</p>
+<ul>
+<li><p>window.alert() :弹出警告框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">alert</span>(<span class="number">9</span>+<span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/js.png" alt="image-20220419221047094"></p>
+</li>
+<li><p>document.write() :将内容写到HTML文档中</p>
+</li>
+<li><p>innerHTML：写入到HTML元素当中</p>
+</li>
+<li><p>console.log():写入到浏览器的控制台</p>
+</li>
+</ul>
+<h2 id="3-JavaScript-基础"><a href="#3-JavaScript-基础" class="headerlink" title="3 JavaScript 基础"></a>3 JavaScript 基础</h2><h3 id="3-1-JavaScript字面量"><a href="#3-1-JavaScript字面量" class="headerlink" title="3.1 JavaScript字面量"></a>3.1 JavaScript字面量</h3><p>JavaScript中，一般<strong>固定值</strong>称为字面量</p>
+<h4 id="3-1-1-数字字面量Number"><a href="#3-1-1-数字字面量Number" class="headerlink" title="3.1.1  数字字面量Number"></a>3.1.1  数字字面量Number</h4><p><strong>整数</strong>或者是<strong>小数</strong>，或者是<strong>科学计数</strong>(e)</p>
+<ul>
+<li><code>3.14</code></li>
+<li><code>1024</code></li>
+<li><code>123e5</code></li>
+</ul>
+<h4 id="3-1-2-字符串字面量String"><a href="#3-1-2-字符串字面量String" class="headerlink" title="3.1 .2 字符串字面量String"></a>3.1 .2 字符串字面量String</h4><p>可以使用<strong>单引号或双引号</strong></p>
+<ul>
+<li><p><code>&quot;hello javascript&quot;</code></p>
+</li>
+<li><p><code>&#39;hello javascript&#39;</code></p>
+</li>
+</ul>
+<h4 id="3-1-3-表达字面量String"><a href="#3-1-3-表达字面量String" class="headerlink" title="3.1 .3 表达字面量String"></a>3.1 .3 表达字面量String</h4><p>用于计算</p>
+<p><code>5 * 4</code></p>
+<p><code>3 + 3</code></p>
+<h4 id="3-1-4-数值字面量Array"><a href="#3-1-4-数值字面量Array" class="headerlink" title="3.1 .4 数值字面量Array"></a>3.1 .4 数值字面量Array</h4><p><code>[30,2,5,44,21]</code></p>
+<h4 id="3-1-5-对象字面量Object"><a href="#3-1-5-对象字面量Object" class="headerlink" title="3.1 .5 对象字面量Object"></a>3.1 .5 对象字面量Object</h4><p><code>&#123;weight:120,height=180,name:&quot;Elliot&quot;&#125;</code></p>
+<h4 id="3-1-6-函数字面量Function"><a href="#3-1-6-函数字面量Function" class="headerlink" title="3.1 .6 函数字面量Function"></a>3.1 .6 函数字面量Function</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">plusFunction</span>(<span class="params">a,b</span>)</span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-JavaScript变量"><a href="#3-2-JavaScript变量" class="headerlink" title="3.2 JavaScript变量"></a>3.2 JavaScript变量</h3><p>作用：储存数据值</p>
+<p>区别：在指令式语言中，变量通常是可变的。字面量是一个恒定的值。</p>
+<p><strong>符号：var</strong></p>
+<p>规定：以 <strong>字母</strong> &#x2F; 美元**$** &#x2F; 下划线 <strong>_</strong>   开头</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> length,number</span><br><span class="line">length = <span class="number">100</span></span><br><span class="line">number = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-JavaScript-运算符"><a href="#3-3-JavaScript-运算符" class="headerlink" title="3.3 JavaScript 运算符"></a>3.3 JavaScript 运算符</h3><h4 id="3-3-1-算数运算符"><a href="#3-3-1-算数运算符" class="headerlink" title="3.3.1 算数运算符"></a>3.3.1 算数运算符</h4><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>&#x2F;</li>
+</ul>
+<h4 id="3-3-2-赋值运算符"><a href="#3-3-2-赋值运算符" class="headerlink" title="3.3.2 赋值运算符"></a>3.3.2 赋值运算符</h4><ul>
+<li>&#x3D;</li>
+</ul>
+<h4 id="3-3-3-比较运算符"><a href="#3-3-3-比较运算符" class="headerlink" title="3.3.3 比较运算符"></a>3.3.3 比较运算符</h4><ul>
+<li>&#x3D;&#x3D;</li>
+<li><code>!=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&gt;</code></li>
+</ul>
+<h3 id="3-4-JavaScript-关键字"><a href="#3-4-JavaScript-关键字" class="headerlink" title="3.4 JavaScript 关键字"></a><strong>3.4</strong> JavaScript 关键字</h3><p>作用：标识要执行的操作</p>
+<p>JavaScript保留的关键字</p>
+<table>
+<thead>
+<tr>
+<th>A-D</th>
+<th>E…I</th>
+<th>I…S</th>
+<th>S…W</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abstract</td>
+<td>else</td>
+<td>instanceof</td>
+<td>super</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>enum</td>
+<td>int</td>
+<td>switch</td>
+</tr>
+<tr>
+<td>break</td>
+<td>export</td>
+<td>interface</td>
+<td>synchronized</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>extends</td>
+<td>let</td>
+<td>this</td>
+</tr>
+<tr>
+<td>case</td>
+<td>false</td>
+<td>long</td>
+<td>throw</td>
+</tr>
+<tr>
+<td>catch</td>
+<td>final</td>
+<td>native</td>
+<td>throws</td>
+</tr>
+<tr>
+<td>char</td>
+<td>finally</td>
+<td>new</td>
+<td>transient</td>
+</tr>
+<tr>
+<td>class</td>
+<td>float</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td>const</td>
+<td>for</td>
+<td>package</td>
+<td>try</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>function</td>
+<td>private</td>
+<td>typeof</td>
+</tr>
+<tr>
+<td>debugger</td>
+<td>goto</td>
+<td>protected</td>
+<td>var</td>
+</tr>
+<tr>
+<td>default</td>
+<td>if</td>
+<td>public</td>
+<td>void</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>implements</td>
+<td>return</td>
+<td>volatile</td>
+</tr>
+<tr>
+<td>do</td>
+<td>import</td>
+<td>short</td>
+<td>while</td>
+</tr>
+<tr>
+<td>double</td>
+<td>in</td>
+<td>static</td>
+<td>with</td>
+</tr>
+</tbody></table>
+<h3 id="3-5-JavaScript-数据类型"><a href="#3-5-JavaScript-数据类型" class="headerlink" title="3.5 JavaScript 数据类型"></a>3.5 JavaScript 数据类型</h3><p> 数据类型：<strong>数字，字符串，数组，对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> height = <span class="number">180</span>;</span><br><span class="line"><span class="comment">//通过数字字面量赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> scores = <span class="number">50</span> + <span class="number">10</span>;</span><br><span class="line"><span class="comment">//通过表达式字面量赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Elliotoplit&quot;</span></span><br><span class="line"><span class="comment">//通过字符串字面量赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> companies =[<span class="string">&quot;Tencent&quot;</span>,<span class="string">&quot;ByteDance&quot;</span>,<span class="string">&quot;Alibaba&quot;</span>]</span><br><span class="line"><span class="comment">//通过数组字面量赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = &#123;</span><br><span class="line">    <span class="attr">priceL</span>:<span class="number">150000</span>;</span><br><span class="line">    <span class="attr">color</span>:<span class="string">&quot;dark&quot;</span>;</span><br><span class="line">    <span class="attr">band</span>:<span class="string">&quot;toyota&quot;</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过对象字面量赋值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-JavaScript-函数"><a href="#3-6-JavaScript-函数" class="headerlink" title="3.6 JavaScript 函数"></a>3.6 JavaScript 函数</h3><p>作用：方便重复执行某操作</p>
+<p>函数格式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">thePlusFunction</span>(<span class="params">a,b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>引用方法：函数名<strong>带上括号</strong></p>
+<h3 id="3-7-JavaScript-其他"><a href="#3-7-JavaScript-其他" class="headerlink" title="3.7 JavaScript 其他"></a>3.7 JavaScript 其他</h3><h4 id="3-7-1-语句"><a href="#3-7-1-语句" class="headerlink" title="3.7.1 语句"></a>3.7.1 语句</h4><p>作用：向浏览器发出命令</p>
+<p>符号：</p>
+<ul>
+<li>语句用分号“ ; ” 分割。</li>
+<li>可以用其分隔一行的多条语句</li>
+<li>JavaScript 中，用分号来结束语句是<strong>可选的</strong></li>
+</ul>
+<h4 id="3-7-1-注释"><a href="#3-7-1-注释" class="headerlink" title="3.7.1 注释"></a>3.7.1 注释</h4><p>作用：方便<strong>二次阅读</strong>和<strong>维护代码</strong></p>
+<p>单行注释符号：双斜杠“ &#x2F;&#x2F; ”</p>
+<p>多行注释符号：斜杠星“&#x2F;*  … *&#x2F;”</p>
+<p>其他作用：阻止代码执行，<strong>调试代码</strong></p>
+<h4 id="3-7-3-字符集"><a href="#3-7-3-字符集" class="headerlink" title="3.7.3 字符集"></a>3.7.3 字符集</h4><p>类型：<strong>Unicode</strong></p>
+<h4 id="3-7-3-空格"><a href="#3-7-3-空格" class="headerlink" title="3.7.3 空格"></a>3.7.3 空格</h4><ul>
+<li><p>javascript会忽略多余的空格</p>
+</li>
+<li><p>可增加空格提高代码可读性</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>var name&#x3D;”Elliot”;<br>var name &#x3D; “Elliot”;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">#### 3.7.3 折行</span><br><span class="line"></span><br><span class="line">符号：**`\`**</span><br><span class="line"></span><br><span class="line">作用：在**文本字符串**中使用反斜杠对代码行进行换行。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">document.write(&quot;js脚本\</span><br><span class="line">               语言&quot;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+                        
+
+                          
+        </div>
+        <div class="article-info article-info-index">
+          
+              
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                
+
+                  
+                    <p class="article-more-link">
+                      <a class="article-more-a" href="/2022/04/19/JavaScript%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84/">
+                        展开全文 >>
+                      </a>
+                    </p>
+                    
+
+                      
+                            <div class="clearfix"></div>
+        </div>
+  </div>
+</article>
+
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+        
+  
     <article id="post-CSS样式知识结构"
   class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -412,127 +745,6 @@
                   
                     <p class="article-more-link">
                       <a class="article-more-a" href="/2022/03/30/HTML%E8%AF%AD%E6%B3%95%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/">
-                        展开全文 >>
-                      </a>
-                    </p>
-                    
-
-                      
-                            <div class="clearfix"></div>
-        </div>
-  </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-  
-    <article id="post-管理思科路由器的配置文件"
-  class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-          <!--  -->
-          
-            <a href="/2022/03/28/%E7%AE%A1%E7%90%86%E6%80%9D%E7%A7%91%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2022-03-28T13:25:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-28</time>
-</a>
-              
-
-                <!-- 需要添加的位置 -->
-                <!-- 开始添加字数统计-->
-                
-                  <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">273字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-                    
-                      <!-- 添加完成 -->
-
-                      
-
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <center>
-              <p>
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2022/03/28/%E7%AE%A1%E7%90%86%E6%80%9D%E7%A7%91%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">管理思科路由器的配置文件</a>
-    </h1>
-  
-
-              </p>
-            </center>
-            
-              <h2 id="配置文件基本操作"><a href="#配置文件基本操作" class="headerlink" title="配置文件基本操作"></a>配置文件基本操作</h2><ul>
-<li><strong>运行配置命令</strong><br><code>show running-config</code></li>
-<li><strong>启动配置命令</strong><br><code>show startup-config</code>
-                
-                  <a class="article-more-a" href="/2022/03/28/%E7%AE%A1%E7%90%86%E6%80%9D%E7%A7%91%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/#more">
-                    more >>
-                  </a>
-                  
-                    
-
-                          
-        </div>
-        <div class="article-info article-info-index">
-          
-              
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思科</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">路由器配置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                
-
-                  
-                    <p class="article-more-link">
-                      <a class="article-more-a" href="/2022/03/28/%E7%AE%A1%E7%90%86%E6%80%9D%E7%A7%91%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
                         展开全文 >>
                       </a>
                     </p>
@@ -1631,10 +1843,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">路由器配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
@@ -1644,6 +1852,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">样式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>
