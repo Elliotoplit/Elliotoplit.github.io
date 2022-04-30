@@ -23,7 +23,7 @@
 <meta property="og:image" content="c:/Users/豪大大/AppData/Roaming/Typora/typora-user-images/image-20220427224359702.png">
 <meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/jsObject.png">
 <meta property="article:published_time" content="2022-04-19T10:22:37.000Z">
-<meta property="article:modified_time" content="2022-04-29T14:11:23.543Z">
+<meta property="article:modified_time" content="2022-04-30T16:10:52.256Z">
 <meta property="article:author" content="Li Hao">
 <meta property="article:tag" content="语法">
 <meta property="article:tag" content="javascript">
@@ -212,7 +212,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">2.7k字</span>
+      <span class="post-count">3.2k字</span>
     </span>
   </span>
 
@@ -221,7 +221,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">12分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -637,6 +637,46 @@ B5-->C14("variablename=(condition)?value1:value2 ")</pre>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;John&quot;</span>.<span class="property">constructor</span>                 <span class="comment">// 返回函数 String()  &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="8-5-更多转换方法"><a href="#8-5-更多转换方法" class="headerlink" title="8.5 更多转换方法"></a>8.5 更多转换方法</h3><p> <a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-type-conversion.html">JavaScript 类型转换</a></p>
+<h2 id="9-JavaScript-正则表达式"><a href="#9-JavaScript-正则表达式" class="headerlink" title="9 JavaScript 正则表达式"></a>9 JavaScript 正则表达式</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>正则表达式：Regular Expression，在代码中常简写为regex</p>
+<p>原理：由单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/正则表达式主题/修饰符（可选）</span><br></pre></td></tr></table></figure>
+
+<p>实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="regexp">/Jack/i</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS里的使用场景"><a href="#JS里的使用场景" class="headerlink" title="JS里的使用场景"></a>JS里的使用场景</h3><ul>
+<li><p>1.search()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;My name is Elliot&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> n = str.<span class="title function_">search</span>(<span class="regexp">/Elliot/i</span>);</span><br><span class="line"><span class="comment">//搜寻不区分大小写的elliot，并返回首位置</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(n);</span><br><span class="line"><span class="comment">//返回位置11</span></span><br></pre></td></tr></table></figure>
+
+<p>search()方法也可以直接放入一个字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var n = str.search(&quot;Elliot&quot;);</span><br><span class="line">//会自动转为正则表达式</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>2.replace()</p>
+<p>replace(被替换文本的正则表达式,”新文本”)</p>
+<p>下面代码展示将”Elliot toplit”改为”Elliot mostlit”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">&quot;myFunction()&quot;</span>&gt;点我&lt;/button&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>Elliot toplit!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> str = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerText</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	<span class="keyword">var</span> txt = str.<span class="title function_">replace</span>(<span class="regexp">/top/i</span>,<span class="string">&quot;most&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerText</span> = txt;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>replace()也可以<strong>都使用字符串</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">replace</span>(<span class="string">&quot;被替换内容&quot;</span>,<span class="string">&quot;替换内容&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="正则表达式修饰符"><a href="#正则表达式修饰符" class="headerlink" title="正则表达式修饰符"></a>正则表达式修饰符</h3><p>g ：全局匹配（不会在查询到一个值之后停止）</p>
+<p>i：对大小写不敏感的查询 </p>
+<p>m：执行多行匹配</p>
+<h3 id="RegExp-建立对象"><a href="#RegExp-建立对象" class="headerlink" title="RegExp()建立对象"></a>RegExp()建立对象</h3><p>建立一个正则表达式对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1 = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;top&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="test-方法"><a href="#test-方法" class="headerlink" title="test()方法"></a>test()方法</h3><p>作用：如果字符串中含有匹配的文本，则返回 true，否则返回 false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt1 = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;top&quot;</span>);</span><br><span class="line"><span class="comment">//第一行可写为： var patt1 = /top/</span></span><br><span class="line">n = str.<span class="title function_">test</span>(<span class="string">&quot;Elliotoplit&quot;</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(n);<span class="comment">//返回true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="exec-方法"><a href="#exec-方法" class="headerlink" title="exec()方法"></a>exec()方法</h3><p>作用：如果字符串中含有匹配的文本，则返回 该字符串数组，否则返回 null</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x <span class="keyword">var</span> patt1 = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;top&quot;</span>);</span><br><span class="line"><span class="comment">//第一行可写为： var patt1 = /top/;</span></span><br><span class="line">n = str.<span class="title function_">exec</span>(<span class="string">&quot;Elliotoplit&quot;</span>);</span><br><span class="line">m = str.<span class="title function_">exec</span>(<span class="string">&quot;big&quot;</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(n);<span class="comment">//返回top</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(m);<span class="comment">//返回null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更多实例"><a href="#更多实例" class="headerlink" title="更多实例"></a>更多实例</h3><p><a target="_blank" rel="noopener" href="https://c.runoob.com/codedemo/3525/">JS 判断字符串是否全部为数字 </a></p>
+<p><a target="_blank" rel="noopener" href="https://c.runoob.com/codedemo/3526/">JS 判断字符串是否全部为字母 </a></p>
 
                         
 
