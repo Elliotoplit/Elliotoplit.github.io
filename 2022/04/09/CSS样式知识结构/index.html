@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/cssexample1.png">
 <meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/csstooltip.png">
 <meta property="article:published_time" content="2022-04-09T06:42:22.000Z">
-<meta property="article:modified_time" content="2022-04-28T03:14:37.163Z">
+<meta property="article:modified_time" content="2022-05-03T08:53:17.820Z">
 <meta property="article:author" content="Li Hao">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -213,7 +213,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">5.5k字</span>
+      <span class="post-count">5.6k字</span>
     </span>
   </span>
 
@@ -688,29 +688,30 @@
 
 
 <h3 id="17-3-relative"><a href="#17-3-relative" class="headerlink" title="17.3 relative"></a>17.3 relative</h3><p>解释：<strong>相对</strong></p>
-<p>相对定位元素的定位是相对其正常位置。</p>
+<p>相对定位元素的定位是<strong>相对自己的正常位置</strong>。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-tag">h2</span><span class="selector-class">.pos_top</span></span></span><br><span class="line"><span class="language-css">&#123;</span></span><br><span class="line"><span class="language-css">	<span class="attribute">position</span>:relative;</span></span><br><span class="line"><span class="language-css">	<span class="attribute">top</span>:-<span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;pos_top&quot;</span>&gt;</span>这个标题是根据其正常位置向上移动<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="17-4-absolute"><a href="#17-4-absolute" class="headerlink" title="17.4 absolute"></a>17.4 absolute</h3><p>解释：<strong>绝对</strong></p>
 <p>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<code>&lt;html&gt;</code></p>
+<p>绝对定位使元素的位置与文档流无关，因此不占据空间。这一点与相对定位不同，相对定位实际上被看作普通流定位模型的一部分，因为元素的位置相对于它在普通流中的位置。</p>
 <h3 id="17-5-sticky"><a href="#17-5-sticky" class="headerlink" title="17.5 sticky"></a>17.5 sticky</h3><p>解释：粘性</p>
 <ul>
 <li><p>适合导航的跟随定位效果</p>
 </li>
-<li><p><strong>粘性定位</strong>的元素是依赖于用户的滚动，在 <strong>position:relative</strong> 与 <strong>position:fixed</strong> 定位之间<strong>切换</strong>。</p>
+<li><p><strong>粘性定位</strong>的元素是依赖于用户的滚动，在 <strong>position:relative</strong> 与 <strong>position:fixed</strong> 定位之间<strong>切换</strong></p>
 </li>
-<li><p>元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。</p>
+<li><p>元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位</p>
 </li>
-<li><p><strong>特定阈值</strong>指的是 top, right, bottom 或 left 之一。因此必须指定一个阈值，才可生效。否则其行为与相对定位相同。</p>
+<li><p><strong>特定阈值</strong>指的是 top, right, bottom 或 left 之一。因此必须指定一个阈值，才可生效。否则其行为与相对定位相同</p>
 </li>
 </ul>
   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span><span class="selector-class">.sticky</span> &#123;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: -webkit-sticky; <span class="comment">/* for safari */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: sticky;         <span class="comment">/* for chorme,edge...*/</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">top</span>: <span class="number">0%</span>;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: antiquewhite;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"> </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>尝试滚动页面<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;sticky&quot;</span>&gt;</span></span><br><span class="line">        我是粘性定位</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding-bottom:2000px&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>go!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>go!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>go!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>go!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>go!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>  <a href="https://elliotoplit.github.io/page/sources/cssposition.html"  target="_blank" align="center"><b>点击此处直接体验代码效果</b><br>  </a></p>
-<h2 id="18-CSS-溢出-overflow"><a href="#18-CSS-溢出-overflow" class="headerlink" title="18 CSS 溢出 overflow"></a>18 CSS 溢出 overflow</h2><p>作用：控制<strong>内容溢出</strong>元素框时在对应的元素区间内<strong>添加滚动条</strong>。</p>
+<h2 id="18-CSS-溢出-overflow"><a href="#18-CSS-溢出-overflow" class="headerlink" title="18 CSS 溢出 overflow"></a>18 CSS 溢出 overflow</h2><p>作用：控制<strong>内容溢出</strong>元素框时在对应的元素区间内<strong>添加滚动条</strong></p>
 <ul>
 <li><p>visible（默认值）:内容<strong>不被修剪</strong>，因此<strong>超出边界</strong></p>
 </li>
@@ -722,7 +723,7 @@
 <p><code>overflow:auto;</code></p>
 </li>
 </ul>
-<h2 id="19-CSS-浮动-float"><a href="#19-CSS-浮动-float" class="headerlink" title="19 CSS 浮动 float"></a>19 CSS 浮动 float</h2><h3 id="19-1-float-简介"><a href="#19-1-float-简介" class="headerlink" title="19.1 float 简介"></a>19.1 float 简介</h3><p>作用:会使元素<strong>向左或向右</strong>移动，其周围的元素也会重新排列。</p>
+<h2 id="19-CSS-浮动-float"><a href="#19-CSS-浮动-float" class="headerlink" title="19 CSS 浮动 float"></a>19 CSS 浮动 float</h2><h3 id="19-1-float-简介"><a href="#19-1-float-简介" class="headerlink" title="19.1 float 简介"></a>19.1 float 简介</h3><p>作用:会使元素<strong>向左或向右</strong>移动，其周围的元素也会重新排列</p>
 <p>场景：往往是用于图像，但它在布局时一样非常有用（<strong>不能上下移动</strong>）</p>
 <p>原理：一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止</p>
 <ul>

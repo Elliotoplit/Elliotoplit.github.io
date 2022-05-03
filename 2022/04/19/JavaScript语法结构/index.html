@@ -22,8 +22,9 @@
 <meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/stacktype.png">
 <meta property="og:image" content="c:/Users/豪大大/AppData/Roaming/Typora/typora-user-images/image-20220427224359702.png">
 <meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/jsObject.png">
+<meta property="og:image" content="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/async-sync.png">
 <meta property="article:published_time" content="2022-04-19T10:22:37.000Z">
-<meta property="article:modified_time" content="2022-05-01T15:34:49.032Z">
+<meta property="article:modified_time" content="2022-05-03T15:59:02.758Z">
 <meta property="article:author" content="Li Hao">
 <meta property="article:tag" content="语法">
 <meta property="article:tag" content="javascript">
@@ -212,7 +213,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">5.4k字</span>
+      <span class="post-count">7.6k字</span>
     </span>
   </span>
 
@@ -221,7 +222,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">23分</span>
+      <span class="post-count">33分</span>
     </span>
   </span>
 </div>
@@ -890,6 +891,176 @@ B5-->C14("variablename=(condition)?value1:value2 ")</pre>
 <li>JavaScript 对象、属性和方法</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-reserved.html">JavaScript 保留关键字 | 菜鸟教程 (runoob.com)</a></p>
+<h2 id="18-JavaScript-this"><a href="#18-JavaScript-this" class="headerlink" title="18 JavaScript this"></a>18 JavaScript this</h2><p>在面向对象的编成中，<strong>this指针</strong>表示<strong>当前对象的引用</strong></p>
+<p>在JavaScript中this指针并不是固定不变的，它执行环境的变换而变化</p>
+<ul>
+<li><p>方法中：this表示方法所属对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fullName : <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>单独使用：this表示全局对象</p>
+<p>在浏览器中，window 就是该全局对象为 [<strong>object Window</strong>]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="variable language_">this</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = x;</span><br><span class="line"><span class="comment">//输出 [object Window]</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>函数中：this表示全局对象</p>
+<p>在浏览器中，window 就是该全局对象为 [<strong>object Window</strong>]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回 [object Window]</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>函数中，严格模式下：this是未定义的（undefined）</p>
+<p>严格模式下函数是没有绑定到 this 上，这时候 this 是 <strong>undefined</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = <span class="title function_">myFunction</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回 undefined</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>事件中：this表示接受事件的元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">&quot;this.style.display=&#x27;none&#x27;&quot;</span>&gt;点我后我就消失了&lt;/button&gt;</span><br><span class="line"><span class="comment">//this是当前button元素,</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>类似 call() 和 apply() 方法可以将 this 引用到任何对象</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个对象</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstName  : <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  lastName   : <span class="string">&quot;Doe&quot;</span>,</span><br><span class="line">  id     : <span class="number">5566</span>,</span><br><span class="line">  myFunction : <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 返回[object Object]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="19-JavaScript-let-和-const"><a href="#19-JavaScript-let-和-const" class="headerlink" title="19 JavaScript let 和 const"></a>19 JavaScript let 和 const</h2><p>ES2015(ES6) 新增加了两个重要的 JavaScript 关键字: <strong>let</strong> 和 <strong>const</strong></p>
+<p><strong>let</strong>：let 声明的变量只在 let 命令所在的代码块内有效</p>
+<p><strong>const</strong>：声明一个只读的常量，一旦声明，常量的值就不能改变</p>
+<h3 id="19-1-全局变量"><a href="#19-1-全局变量" class="headerlink" title="19.1 全局变量"></a>19.1 全局变量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> carName = <span class="string">&quot;Volvo&quot;</span>;</span><br><span class="line"><span class="comment">// 这里可以使用 carName 变量</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 这里也可以使用 carName 变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-2-局部变量"><a href="#19-2-局部变量" class="headerlink" title="19.2 局部变量"></a>19.2 局部变量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里不能使用 carName 变量</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> carName = <span class="string">&quot;Volvo&quot;</span>;</span><br><span class="line">    <span class="comment">// 这里可以使用 carName 变量</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 这里不能使用 carName 变量</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="19-3-JS块级作用域"><a href="#19-3-JS块级作用域" class="headerlink" title="19.3 JS块级作用域"></a>19.3 JS块级作用域</h3><p>来源：ES6</p>
+<h4 id="19-3-1-var-变量"><a href="#19-3-1-var-变量" class="headerlink" title="19.3.1 var 变量"></a>19.3.1 var 变量</h4><p>不具备块级作用域的特点，它在 {} 外依然能被访问到</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">2</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里可以使用 x 变量</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="19-3-2-let-变量"><a href="#19-3-2-let-变量" class="headerlink" title="19.3.2 let 变量"></a>19.3.2 let 变量</h4><p>只在 let 命令所在的代码块 <strong>{}</strong> 内有效，在 <strong>{}</strong> 之外不能访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里不能使用 x 变量</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="19-3-3-var-和-let-区别"><a href="#19-3-3-var-和-let-区别" class="headerlink" title="19.3.3 var 和 let 区别"></a>19.3.3 var 和 let 区别</h4><ul>
+<li><p>在<strong>函数体内</strong>使用 <strong>var</strong> 和 <strong>let</strong> 关键字声明的变量有点<strong>类似</strong>。</p>
+<p>它们的作用域都是 <strong>局部的</strong></p>
+</li>
+<li><p>在<strong>函数体外</strong>或代码块外使用 <strong>var</strong> 和 <strong>let</strong> 关键字声明的变量也有点<strong>类似</strong>。</p>
+<p>它们的作用域都是 <strong>全局的</strong></p>
+</li>
+<li><p>在HTML中使用全局变量</p>
+<ul>
+<li><p>在 JavaScript 中, 全局作用域是针对 JavaScript 环境</p>
+</li>
+<li><p>在 HTML 中, 全局作用域是针对 window 对象</p>
+<p>​       let在html里的全局作用域：window</p>
+<ul>
+<li>&#96;&#96;&#96;html<script>
+let carName = "Volvo";
+
+// 不能使用 window.carName 访问变量
+document.getElementById("demo").innerHTML = "I can not display " + window.carName;
+  </script>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">       var在html里的全局作用域：其JavaScript环境内</span><br><span class="line">    - ```html</span><br><span class="line">      &lt;script&gt;</span><br><span class="line">      var carName = &quot;Volvo&quot;;</span><br><span class="line">      </span><br><span class="line">      // 可以使用 window.carName 访问变量</span><br><span class="line">      document.getElementById(&quot;demo&quot;).innerHTML = &quot;I can display &quot; + window.carName;</span><br><span class="line">      &lt;/script&gt;				  </span><br><span class="line"></span><br><span class="line">####  19.3.4 相同的作用域或块级作用域中的重置</span><br><span class="line"></span><br><span class="line">在相同的作用域或块级作用域中</span><br><span class="line"></span><br><span class="line">- 不能使用 **let** 关键字来重置 **var** 关键字声明的变量</span><br><span class="line">- 不能使用 **var** 关键字来重置 **let** 关键字声明的变量</span><br><span class="line"></span><br><span class="line">- 不能使用 **let** 关键字来重置 **let** 关键字声明的变量</span><br><span class="line"></span><br><span class="line">- 可以var 重置var</span><br><span class="line"></span><br><span class="line">在不同的作用域或块级作用域中</span><br><span class="line"></span><br><span class="line">- 可以**let** 重置**let** </span><br><span class="line"></span><br><span class="line">#### 19.3.5 var 和 let 的变量提升</span><br><span class="line"></span><br><span class="line">- **var** 关键字定义的变量**可以**在使用后声明，也就是变量可以先使用再声明</span><br><span class="line"></span><br><span class="line">- **let** 关键字定义的变量则**不可以**在使用后声明，也就是变量需要先声明再使用</span><br><span class="line"></span><br><span class="line">### 19.4 const 关键字</span><br><span class="line"></span><br><span class="line">#### 19.4.1 const的规则</span><br><span class="line"></span><br><span class="line">- **被定义后不能被修改！！！**</span><br><span class="line">- 和var一样，都是**块级作用域**</span><br><span class="line">- const 声明的常量**必须初始化**(因为不能改变)</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">const PI = 3.141592653589793;</span><br><span class="line">PI = 3.14;      // 报错</span><br><span class="line">PI = PI + 10;   // 报错</span><br><span class="line"></span><br><span class="line">const X;</span><br><span class="line">X = 1.333;//报错，应该在声明时初始化</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="19-4-2-const-并非真正的常量"><a href="#19-4-2-const-并非真正的常量" class="headerlink" title="19.4.2 const 并非真正的常量"></a>19.4.2 const 并非真正的常量</h4><p><strong>const 的本质</strong>: const 定义的变量并非常量，并非不可变，它定义了一个常量引用一个值。使用 const 定义的对象或者数组，其实是可变的</p>
+<p>正确用法:添加&#x2F;修改属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建常量对象</span></span><br><span class="line"><span class="keyword">const</span> car = &#123;<span class="attr">type</span>:<span class="string">&quot;Fiat&quot;</span>, <span class="attr">model</span>:<span class="string">&quot;500&quot;</span>, <span class="attr">color</span>:<span class="string">&quot;white&quot;</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 修改属性:</span></span><br><span class="line">car.<span class="property">color</span> = <span class="string">&quot;red&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 添加属性</span></span><br><span class="line">car.<span class="property">owner</span> = <span class="string">&quot;Johnson&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>错误用法:对常量对象重新赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123;<span class="attr">type</span>:<span class="string">&quot;Fiat&quot;</span>, <span class="attr">model</span>:<span class="string">&quot;500&quot;</span>, <span class="attr">color</span>:<span class="string">&quot;white&quot;</span>&#125;;</span><br><span class="line">car = &#123;<span class="attr">type</span>:<span class="string">&quot;Volvo&quot;</span>, <span class="attr">model</span>:<span class="string">&quot;EX60&quot;</span>, <span class="attr">color</span>:<span class="string">&quot;red&quot;</span>&#125;;    <span class="comment">// 错误</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="19-4-3-块级作用域特性"><a href="#19-4-3-块级作用域特性" class="headerlink" title="19.4.3 块级作用域特性"></a>19.4.3 块级作用域特性</h4><p>由于const 和 let  一样是块级作用域的关键字</p>
+<p>所以可以存在以下用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">2</span>;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">const</span> x = <span class="number">5</span>; <span class="comment">//不会报错，此处x只存在于块级内部</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="19-4-4-变量提升"><a href="#19-4-4-变量提升" class="headerlink" title="19.4.4 变量提升"></a>19.4.4 变量提升</h4><p>同let一样</p>
+<p>const 关键字定义的变量则<strong>不可以在使用后声明</strong>，也就是变量需要先声明再使用</p>
+<h2 id="20-JavaScript-JSON"><a href="#20-JavaScript-JSON" class="headerlink" title="20 JavaScript JSON"></a>20 JavaScript JSON</h2><h3 id="20-1-JSON简介"><a href="#20-1-JSON简介" class="headerlink" title="20.1 JSON简介"></a>20.1 JSON简介</h3><p>英文全称 ：<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</p>
+<p>定义：JavaScript对象的字符串表示法</p>
+<p>本质：字符串</p>
+<p>来源：JavaScript语法</p>
+<p>作用：JSON 是用于存储和传输数据的格式</p>
+<p>场景：JSON 通常用于服务端向网页传递数据</p>
+<h3 id="20-2-JSON-语法"><a href="#20-2-JSON-语法" class="headerlink" title="20.2 JSON 语法"></a>20.2 JSON 语法</h3><h4 id="20-2-1-总结"><a href="#20-2-1-总结" class="headerlink" title="20.2.1 总结"></a>20.2.1 总结</h4><ul>
+<li>数据为键值对</li>
+<li>数据间逗号分隔</li>
+<li>大括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<h4 id="20-2-2-数据"><a href="#20-2-2-数据" class="headerlink" title="20.2.2 数据"></a>20.2.2 数据</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据为键值对</span></span><br><span class="line"><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Elliot&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="20-2-3-对象"><a href="#20-2-3-对象" class="headerlink" title="20.2.3 对象"></a>20.2.3 对象</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据间逗号分隔</span></span><br><span class="line"><span class="comment">//大括号包括对象</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Elliot&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;url&quot;</span><span class="punctuation">:</span><span class="string">&quot;elliotoplit.github.io&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="20-2-4-数组"><a href="#20-2-4-数组" class="headerlink" title="20.2.4 数组"></a>20.2.4 数组</h4><p>关键点：</p>
+<ul>
+<li>中括号</li>
+<li>多个对象</li>
+</ul>
+<p>site是一个数组，里面包含三个网站对象</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中括号包含数组</span></span><br><span class="line"><span class="attr">&quot;sites&quot;</span> <span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Elliot&quot;</span><span class="punctuation">,</span><span class="attr">&quot;url&quot;</span><span class="punctuation">:</span><span class="string">&quot;elliotoplit.github.io&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span>   <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Baidu&quot;</span><span class="punctuation">,</span><span class="attr">&quot;url&quot;</span><span class="punctuation">:</span><span class="string">&quot;www.baidu.com&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span>         <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Chrome&quot;</span><span class="punctuation">,</span><span class="attr">&quot;url&quot;</span><span class="punctuation">:</span><span class="string">&quot;www.google.com&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<p>对象属性值也可以是数组</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;网站&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;num&quot;</span><span class="punctuation">:</span><span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;sites&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span> <span class="string">&quot;Google&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Runoob&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Taobao&quot;</span> <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>循环数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> sites) &#123;</span><br><span class="line">    x +=  myObj.<span class="property">site</span>[x] + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除数组元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> myObj.<span class="property">sites</span>[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="20-3-JSON-使用-JavaScript-语法"><a href="#20-3-JSON-使用-JavaScript-语法" class="headerlink" title="20.3 JSON 使用 JavaScript 语法"></a>20.3 JSON 使用 JavaScript 语法</h3><p>因为JSON 使用 JavaScript 语法，所以无需额外软件就可以将JSON转为JavaScript。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sites = [</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Elliot&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;elliotoplit.github.io&quot;</span>&#125;,   &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Baidu&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.baidu.com&quot;</span>&#125;,         &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Chrome&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.google.com&quot;</span>&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>数据的访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sites[<span class="number">0</span>].<span class="property">url</span></span><br><span class="line"><span class="comment">//其值表示 elliotoplit.github.io</span></span><br></pre></td></tr></table></figure>
+
+<p>数据的修改</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sites<span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span>.url = <span class="string">&quot;www.github.com&quot;</span>;</span><br><span class="line"><span class="comment">//其值被修改为 www.github.com</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="20-4-相关函数"><a href="#20-4-相关函数" class="headerlink" title="20.4 相关函数"></a>20.4 相关函数</h3><p>作用： JSON 文本和 JavaScript 对象互相转换</p>
+<ul>
+<li><p>JSON.parse():将JSON字符串转变为JavaScript对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="string">&#x27;&#123;&quot;name&quot;:&quot;Elliot&quot;,&quot;url&quot;:&quot;elliotoplit.github.io&quot;&#125;&#x27;</span>)</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(obj.<span class="property">name</span> +<span class="string">&quot;&lt;br&gt;&quot;</span>+ obj.<span class="property">url</span>)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>JSON.stringify()：将JavaScript对象转变为JSON字符串</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> obj = &#123; <span class="string">&quot;name&quot;</span>:<span class="string">&quot;runoob&quot;</span>, <span class="string">&quot;alexa&quot;</span>:<span class="number">10000</span>, <span class="string">&quot;site&quot;</span>:<span class="string">&quot;www.runoob.com&quot;</span>&#125;;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> myJSON = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = myJSON;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/json/json-parse.html">JSON教程</a></p>
+<h2 id="21-JavaScript-void"><a href="#21-JavaScript-void" class="headerlink" title="21 JavaScript void"></a>21 JavaScript void</h2><h3 id="21-1-javascript-void-0-的含义"><a href="#21-1-javascript-void-0-的含义" class="headerlink" title="21.1  javascript:void(0)的含义"></a>21.1  javascript:void(0)的含义</h3><p><strong>void</strong> 是 JavaScript 中非常重要的关键字</p>
+<p>该操作符指定要<strong>计算一个表达式</strong>但是<strong>不返回值</strong></p>
+<h3 id="21-2-使用示例"><a href="#21-2-使用示例" class="headerlink" title="21.2 使用示例"></a>21.2 使用示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getValue</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="keyword">var</span> a,b,c;</span><br><span class="line">   a = <span class="keyword">void</span> ( b = <span class="number">5</span>, c = <span class="number">7</span> );</span><br><span class="line">   <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;a = &#x27;</span> + a + <span class="string">&#x27; b = &#x27;</span> + b +<span class="string">&#x27; c = &#x27;</span> + c );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出情况</p>
+<p><code>a = undefined b = 5 c = 7</code></p>
+<h3 id="21-3-href-x3D-”-”-区别"><a href="#21-3-href-x3D-”-”-区别" class="headerlink" title="21.3 href&#x3D;”#” 区别"></a>21.3 href&#x3D;”#” 区别</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span>&gt;</span>单击此处不发生事件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>单击此处什么也不会发生<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">/*</span><br><span class="line"># 包含了一个位置信息，默认的锚是#top 也就是网页的上端。</span><br><span class="line"></span><br><span class="line">而javascript:void(0), 仅仅表示一个死链接 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="22-JavaScript-异步编程"><a href="#22-JavaScript-异步编程" class="headerlink" title="22 JavaScript 异步编程"></a>22 JavaScript 异步编程</h2><h3 id="22-1-异步的概念"><a href="#22-1-异步的概念" class="headerlink" title="22.1 异步的概念"></a>22.1 异步的概念</h3><p>异步：Asynchronous, async</p>
+<p>同步：Synchronous, sync</p>
+<p>异步的概念：不保证同步的概念，也就是说，一个异步过程的执行将不再与原有的序列有顺序关系</p>
+<p>简单理解：同步按你的代码顺序执行，异步<strong>不按照代码顺序执行</strong>，异步的执行<strong>效率更高</strong></p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/async-sync.png" alt="img"></p>
+<h3 id="22-2-setTimeout"><a href="#22-2-setTimeout" class="headerlink" title="22.2 setTimeout()"></a>22.2 setTimeout()</h3><p>setTimeout(function(),time)</p>
+<p>第一个参数是待执行的回调函数</p>
+<p>第二个参数是等待毫秒数</p>
+<h3 id="22-3-回调函数"><a href="#22-3-回调函数" class="headerlink" title="22.3 回调函数"></a>22.3 回调函数</h3><p>概念：就是一个函数，它是在我们启动一个异步任务的时候就告诉它，等你完成了这个任务之后要干什么</p>
+<p>作用：这样一来主线程几乎不用关心异步任务的状态了，他自己会善始善终</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span>=<span class="string">&quot;RUNOOB!&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(print, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上代码常常转为匿名函数形式</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span>=<span class="string">&quot;RUNOOB!&quot;</span>;</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-4-异步AJAX"><a href="#22-4-异步AJAX" class="headerlink" title="22.4 异步AJAX"></a>22.4 异步AJAX</h3><p>除了 setTimeout 函数以外，<strong>异步回调</strong>广泛应用于 AJAX 编程</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程 </a></p>
 
                         
 
