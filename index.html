@@ -322,7 +322,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">3k字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -357,36 +357,38 @@
               </p>
             </center>
             
-                      <h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><p>赋值粘贴</p>
-<p>光标移动到指定行  不用选中整行文本 直接ctrl c  即可复制整行</p>
-<h3 id="j"><a href="#j" class="headerlink" title="j"></a>j</h3><p>wxss —css:样式</p>
+                      <h2 id="1-小程序基础"><a href="#1-小程序基础" class="headerlink" title="1 小程序基础"></a>1 小程序基础</h2><h3 id="1-1赋值粘贴"><a href="#1-1赋值粘贴" class="headerlink" title="1.1赋值粘贴"></a><strong>1.1赋值粘贴</strong></h3><p>光标移动到指定行  不用选中整行文本 直接ctrl c  即可复制整行</p>
+<p><strong>新建页面</strong></p>
+<p>在app.json的pages里面添加页面路径</p>
+<h3 id="1-2-文件类型介绍"><a href="#1-2-文件类型介绍" class="headerlink" title="1.2 文件类型介绍"></a>1.2 文件类型介绍</h3><p><strong>四大内容</strong></p>
+<p>wxss —css:样式</p>
 <p>wxml — html：框架</p>
 <p>js — js：逻辑</p>
 <p>json — json：结构</p>
-<p>utils里面的文件是对全局继续配置的</p>
+<p>utils:对全局继续配置的</p>
 <p>app.js  &#x2F;app.wxss &#x2F;app.json &#x2F;app.wxml:针对整个程序</p>
-<p>pages里面每个文件夹代表一个页面</p>
+<p>pages:里面每个文件夹代表一个页面</p>
 <p>每个页面都包含四大内容</p>
 <p>project.config.json : 整个项目的配置</p>
 <p>sitemap.json : 页面索引配置</p>
-<p>html 与 wxml区别</p>
-<p>有 view 没有 div</p>
+<h3 id="1-3-html-与-wxml区别"><a href="#1-3-html-与-wxml区别" class="headerlink" title="1.3 html 与 wxml区别"></a>1.3 html 与 wxml区别</h3><p>有 view 没有 div</p>
 <p>有text 没有span</p>
-<p>新建页面：在app.json的pages里面添加页面路径</p>
-<p>hover-start-time&#x3D;”100” </p>
+<p>双标签可以加斜杠转单标签<image/></p>
+<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2  基本语法"></a>2  基本语法</h2><h3 id="hover"><a href="#hover" class="headerlink" title="hover"></a>hover</h3><p>hover-start-time&#x3D;”100” </p>
 <p>hover-stay-time&#x3D;”100”</p>
 <p>hover-stop-propagation：消除冒泡</p>
-<p>连续多个空格：space 属性</p>
+<h3 id="space-属性"><a href="#space-属性" class="headerlink" title="space 属性"></a>space 属性</h3><p>连续多个空格：space 属性</p>
 <p>合法值：</p>
 <ul>
-<li>ensp：中文一半 <em>默认</em></li>
-<li>emsp：中文大小</li>
-<li>nbsp：有字体大小绝对</li>
+<li><p>ensp：中文一半 <em>默认</em></p>
+</li>
+<li><p>emsp：中文大小</p>
+</li>
+<li><p>nbsp：有字体大小绝对</p>
+</li>
 </ul>
-<p>decode：解码</p>
+<h3 id="decode-属性"><a href="#decode-属性" class="headerlink" title="decode 属性"></a>decode 属性</h3><p>decode：解码</p>
 <p><text decode>&amp;nbsp; </p>
-<p>双标签可以加斜杠转单标签<image/></p>
-<p>images</p>
 <p>show-menu-by-longpress:长按菜单</p>
 <p>页面跳转</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator class=&quot;link&quot; url=&quot;/pages/logs/logs&quot;&gt;导航跳转&lt;/navigator&gt;</span><br><span class="line">//其中url只能输入小程序链接不能输入外网例如网页链接(要不说垄断还是腾讯强)</span><br></pre></td></tr></table></figure>
@@ -402,36 +404,39 @@
 <p>swiper：滚动栏</p>
 <img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/bannerview.png"  height="200px">
 
-<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><h4 id="open-type"><a href="#open-type" class="headerlink" title="open-type:"></a>open-type:</h4><p>contact:客服</p>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><h4 id="button"><a href="#button" class="headerlink" title="button"></a>button</h4><p>open-type:</p>
+<p>contact:客服</p>
 <p>getPhoneNumber</p>
 <p>getUserInfo：采集用户信息</p>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><h4 id="placeholder-style：占位符样式"><a href="#placeholder-style：占位符样式" class="headerlink" title="placeholder-style：占位符样式"></a>placeholder-style：占位符样式</h4><h4 id="placeholder-class：占位符样式表"><a href="#placeholder-class：占位符样式表" class="headerlink" title="placeholder-class：占位符样式表"></a>placeholder-class：占位符样式表</h4><h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>idcard：身份证键盘：X和数字</p>
+<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>placeholder-style：占位符样式</p>
+<p>placeholder-class：占位符样式表</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>idcard：身份证键盘：X和数字</p>
 <p>password</p>
 <p>safe-password:</p>
 <p>安全键盘：</p>
 <p>安全键盘采用非对称加解密算法，该算法需要两个密钥，一个叫公钥，可以公开，另一个叫私钥，需要私密保管。</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/safe-password.html">安全键盘 | 微信开放文档 (qq.com)</a></p>
-<h2 id="process"><a href="#process" class="headerlink" title="process"></a>process</h2><p>active：动画</p>
+<h3 id="process-进度条"><a href="#process-进度条" class="headerlink" title="process 进度条"></a>process 进度条</h3><p>active：动画</p>
 <p>activeColor：进度条颜色 backgroundColor背景颜色</p>
-<h1 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h1><p>app.json</p>
+<h2 id="3-全局配置"><a href="#3-全局配置" class="headerlink" title="3.全局配置"></a>3.全局配置</h2><p>全局配置文件：app.json</p>
 <h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><p>窗口设置</p>
 <h3 id="tabBar"><a href="#tabBar" class="headerlink" title="tabBar"></a>tabBar</h3><p>color：字体颜色</p>
 <p>list数组 ： 2 - 5个</p>
 <p>list 合法内容</p>
 <ul>
-<li><p>pagePath</p>
+<li><p>pagePath：跳转页面路径</p>
 </li>
-<li><p>text</p>
+<li><p>text：导航提示</p>
 </li>
-<li><p>iconPath</p>
+<li><p>iconPath：未选中时图表样式</p>
 </li>
-<li><p>selectedIconPath</p>
+<li><p>selectedIconPath：被选中图标样式</p>
 <p>图标路径不能是网络路径</p>
 </li>
 </ul>
-<h1 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h1><p>类似于全局配置</p>
+<h3 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h3><p>类似于全局配置，只是具体到某个页面的配置</p>
 <p>直接在每个页面json文件的大括号里添加内容</p>
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p>data：存放页面初始化数据</p>
+<h2 id="4-wxs基础内容"><a href="#4-wxs基础内容" class="headerlink" title="4.wxs基础内容"></a>4.wxs基础内容</h2><h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>data：存放页面初始化数据</p>
 <p>字符串 &#x2F; 数组 &#x2F; 对象等各类数据…</p>
 <p>使用方法：放在双花括号里面 </p>
 <p>代码示例</p>
@@ -439,7 +444,7 @@
 <p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/wxdatasrc.png" alt="image-20220506204708664"></p>
 <p>效果：</p>
 <p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/result.png" alt="image-20220506204753285"></p>
-<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><p>wx:if</p>
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p>wx:if</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- 条件渲染 --&gt;</span><br><span class="line">&lt;!-- 在js文件中设置初始化数据day的值为2--&gt;</span><br><span class="line">&lt;view wx:if = &quot;&#123;&#123;day==1&#125;&#125;&quot;&gt;周一&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==2&#125;&#125;&quot;&gt;周二&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==3&#125;&#125;&quot;&gt;周三&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==4&#125;&#125;&quot;&gt;周四&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==5&#125;&#125;&quot;&gt;周五&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==6&#125;&#125;&quot;&gt;周六&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==7&#125;&#125;&quot;&gt;周天&lt;/view&gt;</span><br><span class="line">&lt;view wx:else&gt;数据错误&lt;/view&gt;</span><br><span class="line">&lt;!-- 输出周二 --&gt;</span><br></pre></td></tr></table></figure>
 
 
@@ -447,12 +452,12 @@
 <p>block 和 view 区别</p>
 <p>block会使内部分散且和外面同级</p>
 <p>view会使内部和并为一块来与外面同级</p>
-<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><p>wx:for</p>
+<h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><p>wx:for</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;10&#125;&#125;&quot;&gt;埃里奥特的小木屋&lt;/view&gt;</span><br><span class="line">//循环十次该元素内容</span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123;listArr&#125;&#125;&quot; wx:for-index=&quot;i&quot; wx:for-item=&quot;content&quot;&gt;&#123;&#123;i&#125;&#125;:&#123;&#123;content&#125;&#125;&lt;/view&gt;</span><br><span class="line">//自定义 索引值 和 内容项 的标识符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123;listObj&#125;&#125;&quot; &gt;</span><br><span class="line">阶段&#123;&#123;index+1&#125;&#125;:&#123;&#123;item.title&#125;&#125; 时间:&#123;&#123;item.time&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">///数组对象的循环读取</span><br><span class="line"></span><br><span class="line">wx：key=&quot;this&quot;</span><br><span class="line">wx：key=&quot;index&quot;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Page页面的生命周期和各项函数"><a href="#Page页面的生命周期和各项函数" class="headerlink" title="Page页面的生命周期和各项函数"></a>Page页面的生命周期和各项函数</h2><ul>
+<h3 id="Page页面的生命周期和各项函数"><a href="#Page页面的生命周期和各项函数" class="headerlink" title="Page页面的生命周期和各项函数"></a>Page页面的生命周期和各项函数</h3><ul>
 <li><p>生命周期函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options) &#123;</span><br><span class="line">  console.log(&quot;监听页面加载&quot;)</span><br><span class="line">  // 第一次打开页面时的加载 </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面初次渲染完成</span><br><span class="line">   */</span><br><span class="line">  onReady() &#123;</span><br><span class="line">    console.log(&quot;监听页面初次渲染完成&quot;)</span><br><span class="line">    // 第一次打开页面时的界面渲染</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面显示</span><br><span class="line">   */</span><br><span class="line">  onShow() &#123;</span><br><span class="line">    console.log(&quot;监听页面显示状态&quot;)</span><br><span class="line">    // 每次显示该页面时</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面隐藏</span><br><span class="line">   */</span><br><span class="line">  onHide() &#123;</span><br><span class="line">    console.log(&quot;监听页面隐藏时&quot;)</span><br><span class="line">    //切后台等</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面卸载</span><br><span class="line">   */</span><br><span class="line">  onUnload() &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 页面相关事件处理函数--监听用户下拉动作</span><br><span class="line">   */</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
@@ -479,7 +484,7 @@
 <p><strong>综合运用</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//wxs 函数设置</span><br><span class="line">Tap1(res)&#123;</span><br><span class="line">    // 错误方法：data是私有数据 可以用于获取 不可用于修改</span><br><span class="line">    // this.data.name = &quot;jsj&quot;</span><br><span class="line">    // 正确方法：如果要修改只能这样操作</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      &quot;name&quot;:&quot;马云&quot;</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(this.data.name)</span><br><span class="line">  &#125;,</span><br><span class="line"> //wxml设置</span><br><span class="line"> &lt;view bindtap=&quot;Tap1&quot; data-title= &quot;口令&quot;&gt;click me！&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view style=&quot;height: 100px;width: 100px;background-color: beige;&quot;&gt; </span><br><span class="line">&#123;&#123;name&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="获取设备数据"><a href="#获取设备数据" class="headerlink" title="获取设备数据"></a>获取设备数据</h3><ul>
+<h2 id="5-API"><a href="#5-API" class="headerlink" title="5.API"></a>5.API</h2><h3 id="获取设备数据"><a href="#获取设备数据" class="headerlink" title="获取设备数据"></a>获取设备数据</h3><ul>
 <li><p>获取机型</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wx.getSystemInfoSync(&#123;</span><br><span class="line"></span><br><span class="line">  success: (result) =&gt; &#123;&#125;,</span><br><span class="line"></span><br><span class="line"> &#125;).model</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -497,7 +502,7 @@
 <p>使用navigateTo的可以用navigateBack返回</p>
 <h3 id="网络：十分重要！！！"><a href="#网络：十分重要！！！" class="headerlink" title="网络：十分重要！！！"></a>网络：十分重要！！！</h3><h4 id="布局页面模拟数据请求"><a href="#布局页面模拟数据请求" class="headerlink" title="布局页面模拟数据请求"></a>布局页面模拟数据请求</h4><p>demo6</p>
 <h4 id="API-request网请求"><a href="#API-request网请求" class="headerlink" title="API request网请求"></a>API request网请求</h4><p>demo6</p>
-<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><ul>
+<h2 id="6-ES6"><a href="#6-ES6" class="headerlink" title="6.ES6"></a>6.ES6</h2><ul>
 <li><p>function(n&#x3D;1)：没有传入值时p等于1，有传入在等于传入值</p>
 </li>
 <li><p>引引加加变量引用</p>
@@ -529,7 +534,7 @@
 <li><p>数组连接</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//老方法</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">111</span>,<span class="number">222</span>,<span class="number">333</span>,<span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>,<span class="string">&quot;ccc&quot;</span>]</span><br><span class="line">arr1 = arr1.<span class="title function_">concat</span>(arr2)</span><br><span class="line"><span class="comment">//新方法 用...展开数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">111</span>, <span class="number">222</span>, <span class="number">333</span>, <span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;bbb&quot;</span>, <span class="string">&quot;ccc&quot;</span>]</span><br><span class="line"><span class="keyword">var</span> newArr = [...arr1,...arr2]</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="组件的创建与使用"><a href="#组件的创建与使用" class="headerlink" title="组件的创建与使用"></a>组件的创建与使用</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>1.在根目录下创建一个存放组件的文件夹</p>
+<h2 id="7-组件的创建与使用"><a href="#7-组件的创建与使用" class="headerlink" title="7 组件的创建与使用"></a>7 组件的创建与使用</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>1.在根目录下创建一个存放组件的文件夹</p>
 <p>2.在该文件夹里创建一个某组件的文件夹(组件首字母大写以示不同)</p>
 <p>3.右键单击，点击component创建组件内容</p>
 <p>4.向组件文件里编写代码或者复制已有代码</p>
@@ -549,17 +554,17 @@
 <h3 id="自定义组件传递属性"><a href="#自定义组件传递属性" class="headerlink" title="自定义组件传递属性"></a>自定义组件传递属性</h3><h4 id="data和properties区别"><a href="#data和properties区别" class="headerlink" title="data和properties区别"></a>data和properties区别</h4><p>properties：组件的<strong>对外属性</strong>，是属性名到属性设置的映射表</p>
 <p>data：组件的<strong>内部数据</strong>，和 <code>properties</code> 一同用于组件的模板渲染</p>
 <h4 id="传递方法"><a href="#传递方法" class="headerlink" title="传递方法"></a>传递方法</h4><p>1.在自定义组件上传递自定义属性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;PubTitle myTitle=&quot;行业动态&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;PubTitle myTitle=&quot;行业动态&quot;/&gt;</span><br><span class="line">tag=&quot;&#123;&#123;[&#x27;佛教圣地&#x27;,&#x27;金顶佛光&#x27;,&#x27;云海&#x27;,&#x27;雪景&#x27;]&#125;&#125;&quot; //数组的传入</span><br></pre></td></tr></table></figure>
 
 <p>2.在自定义组件的<strong>js文件</strong>的properties里添加该对外属性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">  myTitle:&#123;</span><br><span class="line">    type:String,</span><br><span class="line">    value:&quot;暂未添加内容&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  //type是传值类型；（String，Array，Number，Obeject）</span><br><span class="line">  //value是默认值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">  myTitle:&#123;</span><br><span class="line">    type:String,</span><br><span class="line">    value:&quot;暂未添加内容&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  //type是传值类型；（String，Array，Number，Obeject）</span><br><span class="line">  //value是默认值</span><br><span class="line">  //强烈建议不要使用简化方法 要用上面这种带数据类型定义的方法！</span><br></pre></td></tr></table></figure>
 
 <p>3.在自定义组件的<strong>wxml文件</strong>里用渲染数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;txt&quot;&gt;&#123;&#123;myTitle&#125;&#125;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;txt&quot;&gt;&#123;&#123;myTitle&#125;&#125;&lt;/view&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="网络请求数据"><a href="#网络请求数据" class="headerlink" title="网络请求数据"></a>网络请求数据</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<h2 id="8-网络请求数据"><a href="#8-网络请求数据" class="headerlink" title="8 网络请求数据"></a>8 网络请求数据</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
 <li><ol>
 <li>可以用console.log(res)查看返回结果</li>
 <li>调试台的AppData也可以查看数据</li>
@@ -584,7 +589,7 @@
 <li>php：秒数</li>
 <li>js：毫秒数</li>
 </ul>
-<h2 id="ES6-模块化"><a href="#ES6-模块化" class="headerlink" title="ES6 模块化"></a>ES6 模块化</h2><p>utils：一般把公用js文件放入utils文件夹，再通过export返回出去</p>
+<h2 id="9-ES6-模块化"><a href="#9-ES6-模块化" class="headerlink" title="9 ES6 模块化"></a>9 ES6 模块化</h2><p>utils：一般把公用js文件放入utils文件夹，再通过export返回出去</p>
 <p>1.在utils里面新建一个js文件</p>
 <p>2.可以在js里定义一个对象，对象里面定义多个函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var common = &#123;</span><br><span class="line">  getStrLen: function (str, len) &#123;</span><br><span class="line">    // 限制标题字符串的长度</span><br><span class="line">    if (str.length &gt; len) &#123;</span><br><span class="line">      return str.substr(0, len) + &quot;...&quot;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return str</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getMyDate: function (date) &#123;</span><br><span class="line">    let _date = new Date(parseInt(date) * 1000);//10位</span><br><span class="line">    let y = _date.getFullYear();</span><br><span class="line">    let m = _date.getMonth() + 1;</span><br><span class="line">    m = m &lt; 10 ? (&#x27;0&#x27; + m) : m;//使月号统一为两位数</span><br><span class="line">    let d = _date.getDate();</span><br><span class="line">    d = d &lt; 10 ? (&#x27;0&#x27; + d) : d;//使日号统一为两位数</span><br><span class="line">    </span><br><span class="line">    let dates = y + &#x27;-&#x27; + m + &#x27;-&#x27; + d;//年月日</span><br><span class="line">    return dates</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
