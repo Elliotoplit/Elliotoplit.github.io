@@ -182,6 +182,1096 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MYSQL基础操作"
+  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+          <!--  -->
+          
+            <a href="/2022/07/10/MYSQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2022-07-09T16:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
+</a>
+              
+
+                <!-- 需要添加的位置 -->
+                <!-- 开始添加字数统计-->
+                
+                  <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">5.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">23分</span>
+    </span>
+  </span>
+</div>
+
+                    
+                      <!-- 添加完成 -->
+
+                      
+
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <center>
+              <p>
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2022/07/10/MYSQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">MYSQL基础操作</a>
+    </h1>
+  
+
+              </p>
+            </center>
+            
+                      <h2 id="1-MYSQL下载与安装"><a href="#1-MYSQL下载与安装" class="headerlink" title="1. MYSQL下载与安装"></a>1. MYSQL下载与安装</h2><blockquote>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1rRvt0MoJUhEf6_btpxQ8Pw?pwd=mysq">https://pan.baidu.com/s/1rRvt0MoJUhEf6_btpxQ8Pw?pwd=mysq</a><br>提取码：mysq</p>
+</blockquote>
+<p>该文件包含软件安装配置的pdf文档，可以按照文档步骤安装msi文件，也可以参照<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Qf4y1T7Hx?p=3&vd_source=de11b64b8e4a3110d2ee99cc02d0fc64">黑马程序员-MYSQL安装与配置</a>压缩包文件</p>
+<h2 id="2-MYSQL-命令行操作"><a href="#2-MYSQL-命令行操作" class="headerlink" title="2.MYSQL 命令行操作"></a>2.MYSQL 命令行操作</h2><ul>
+<li><p>登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u 用户名 -p 密码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p 新密码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动&#x2F;停止mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start/stop mysql</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果无法访问需在cmd位置目录下以<strong>管理员身份运行cmd</strong></p>
+<p>可以用services.msc查看服务允许状态</p>
+</li>
+<li><p>退出mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit //方法1</span><br><span class="line">quit //方法2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u 用户名 -p 密码 -h 所连接主机ip(默认:127.0.0.1) -P 端口号(默认:3306)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">mysqld -remove mysql</span><br><span class="line">最后删除目录和环境变量</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<ul>
+<li><p>创建数据库</p>
+<p>Step1：登录mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u 用户名 -p</span><br></pre></td></tr></table></figure>
+
+<p>Step2：新建数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名称;</span><br></pre></td></tr></table></figure>
+
+<p>此时，mysql文件夹下的<em>data目录会出现一个新文件夹</em></p>
+</li>
+</ul>
+<h2 id="3-MYSQL-数据模型"><a href="#3-MYSQL-数据模型" class="headerlink" title="3 MYSQL 数据模型"></a>3 MYSQL 数据模型</h2><p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-data-model.png" alt="image-20220710005820082"></p>
+<h2 id="4-SQL简介"><a href="#4-SQL简介" class="headerlink" title="4 SQL简介"></a>4 SQL简介</h2><p>英文：Structured Query Language（结构化查询语言）</p>
+<p>定义：操作所有关系型数据库的统一标准</p>
+<ul>
+<li>对于统一需求，每种数据库的操作方式可能存在不同，称之为方言</li>
+</ul>
+<p>SQL分类：</p>
+<ul>
+<li><p>DDL：操作数据库，数据表</p>
+</li>
+<li><p>DML：对表中数据进行<strong>增删改</strong></p>
+</li>
+<li><p>DQL：对表中数据进行<strong>查询</strong></p>
+</li>
+<li><p>DCL：对数据库权限进行控制</p>
+<blockquote>
+<p>DDL:Data Definition Language</p>
+<p>DML：..Manlipulation..</p>
+<p>DQL：..Query..</p>
+<p>DCL：..Control..</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-SQL通用语法"><a href="#5-SQL通用语法" class="headerlink" title="5 SQL通用语法"></a>5 SQL通用语法</h2><ul>
+<li><p>1.语句可以单行书写或者多行书写，分号结尾</p>
+</li>
+<li><p>2.MYSQL数据库不区分大小写，<strong>关键字建议使用大写</strong></p>
+</li>
+<li><p>3.注释</p>
+<ul>
+<li><p>单行注释：</p>
+<ul>
+<li><ol>
+<li>– 注释内容</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>#（MYSQL 特有）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>多行注释：&#x2F;*  注释内容  *&#x2F;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-图形化管理软件-Navicat"><a href="#6-图形化管理软件-Navicat" class="headerlink" title="6 图形化管理软件 Navicat"></a>6 图形化管理软件 Navicat</h2><h3 id="6-1-Navicat下载"><a href="#6-1-Navicat下载" class="headerlink" title="6.1 Navicat下载"></a>6.1 Navicat下载</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://lijunyi.xyz/blogs/app/2022/navicat16.html#navicat16%E9%85%8D%E5%90%88windows%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%BE%BE%E5%88%B0%E6%97%A0%E9%99%90%E8%AF%95%E7%94%A8">Navicat16无限试用</a></p>
+<p>破解器链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1F-QYOzhUbSqSHJIlac-VhQ?pwd=nvct">https://pan.baidu.com/s/1F-QYOzhUbSqSHJIlac-VhQ?pwd=nvct</a> 提取码: nvct</p>
+</blockquote>
+<p>MySQL是一个关系型数据库管理系统</p>
+<p>Navicat是一套快速、可靠并价格相宜的<strong>可视化数据库管理工具</strong></p>
+<h3 id="6-2-Navicat-操作数据库"><a href="#6-2-Navicat-操作数据库" class="headerlink" title="6.2 Navicat 操作数据库"></a>6.2 Navicat 操作数据库</h3><p>1.点击左上角新建MYSQL连接</p>
+<p>2.输入127.0.0.1连接本地数据库</p>
+<p>3.选择数据库,打开表</p>
+<p>4.右键单机表,<strong>点击设计表(相当于 7.2 操作表)</strong></p>
+<h3 id="6-3-Navicat-执行SQL语句"><a href="#6-3-Navicat-执行SQL语句" class="headerlink" title="6.3 Navicat 执行SQL语句"></a>6.3 Navicat 执行SQL语句</h3><p>查询 -&gt; 新建查询 -&gt;编写SQL语句 -&gt;运行 -&gt;结果1 -&gt;结果2..</p>
+<h2 id="7-DDL"><a href="#7-DDL" class="headerlink" title="7 DDL"></a>7 DDL</h2><h3 id="7-1-操作数据库-database"><a href="#7-1-操作数据库-database" class="headerlink" title="7.1 操作数据库 database"></a>7.1 操作数据库 database</h3><h4 id="7-1-1-查询数据库"><a href="#7-1-1-查询数据库" class="headerlink" title="7.1.1 查询数据库"></a>7.1.1 查询数据库</h4><ul>
+<li><p>查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-1-2-创建数据库"><a href="#7-1-2-创建数据库" class="headerlink" title="7.1.2 创建数据库"></a>7.1.2 创建数据库</h4><ul>
+<li><p>创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE 数据库名称;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果不存在则创建(防止报错)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS 数据库名称;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-1-3-删除数据库"><a href="#7-1-3-删除数据库" class="headerlink" title="7.1.3 删除数据库"></a>7.1.3 删除数据库</h4><ul>
+<li><p>删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE 数据库名称;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果存在则删除(防止报错)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF EXISTS 数据库名称;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前使用的数据库 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATABASE();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用数据库</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE 数据库名称;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-操作表-table"><a href="#7-2-操作表-table" class="headerlink" title="7.2 操作表 table"></a>7.2 操作表 table</h3><h4 id="7-2-1-数据类型"><a href="#7-2-1-数据类型" class="headerlink" title="7.2.1 数据类型"></a>7.2.1 数据类型</h4><p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-type.png" alt="image-20220710171437298"></p>
+<p>补充说明</p>
+<ul>
+<li><p>double:双精度 浮点型</p>
+<p>格式:字段名 double(总长度,小数点后保留的位数)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">score double(5,2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>date:日期(包含年月日)</p>
+<p><strong>格式:yyyy-MM-dd</strong></p>
+<p><em>注意:插入数据需用单引号括起来</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">birthday date;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>char:<strong>定长</strong>字符串</p>
+<p>常用于确定字符串长度的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name char(10)</span><br><span class="line">-- 无论输入值多长,最终总是保持10个字符的长度</span><br><span class="line">-- 超过10个字符会报错</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>varchar:<strong>变长</strong>字符串</p>
+<p>常用于不定字符串长度的情况,如用户名等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name varchar(10)</span><br><span class="line">-- 值的长度不固定,根据输入值确定长度</span><br><span class="line">-- 超过10个字符会报错</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-2-2-查询表"><a href="#7-2-2-查询表" class="headerlink" title="7.2.2 查询表"></a>7.2.2 查询表</h4><ul>
+<li><p>查询表(当前数据库<strong>所有的表</strong>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW TABLES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询<strong>某个表的结构</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC 表名;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-desc-tb.png" alt="image-20220710170716987" style="zoom: 33%;" /></li>
+</ul>
+<h4 id="7-2-3-创建表"><a href="#7-2-3-创建表" class="headerlink" title="7.2.3 创建表"></a>7.2.3 创建表</h4><ul>
+<li><p>创建表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">字段1 数据类型1,</span><br><span class="line">字段2 数据类型2,</span><br><span class="line">...</span><br><span class="line">字段3 数据类型3</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
+ <img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-create-tb.png" alt="image-20220710170328095" style="zoom: 50%;" />
+
+<ul>
+<li><p>创建<strong>相同结构表</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE LIKE 模板表名;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em><strong>建表实例展示</strong></em></p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-create-tb-example.png" alt="image-20220710175304687"></p>
+<h4 id="7-2-3-删除表"><a href="#7-2-3-删除表" class="headerlink" title="7.2.3 删除表"></a>7.2.3 删除表</h4><ul>
+<li><p>删除表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除表如果该表存在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS 表名;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-2-3-修改表"><a href="#7-2-3-修改表" class="headerlink" title="7.2.3 修改表"></a>7.2.3 修改表</h4><ul>
+<li><p>修改表名 <em><strong>RENAME TO</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 RENAME TO 新的表名;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>添加表内属性列</strong> <em><strong>ADD</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD 列名 数据类型;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>删除表内属性列</strong> <em><strong>DROP</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP 列名;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>修改数据类型&#x2F;约束</strong>  <em><strong>MODIFY</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 MODIFY 列名 新数据类型;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改列名和数据类型 <em><strong>CHANGE</strong></em></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 CHANGE 列名 新列名 新数据类型;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-DML-数据操纵语言"><a href="#8-DML-数据操纵语言" class="headerlink" title="8 DML 数据操纵语言"></a>8 DML 数据操纵语言</h2><h3 id="8-1-添加数据"><a href="#8-1-添加数据" class="headerlink" title="8.1 添加数据"></a>8.1 添加数据</h3><h4 id="8-1-1-给指定列添加数据"><a href="#8-1-1-给指定列添加数据" class="headerlink" title="8.1.1 给指定列添加数据"></a>8.1.1 给指定列添加数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名(列名1,列名2,..) values(值1,值2,..);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>批量添加</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名(列名1,列名2,..) values(值1,值2,..),(值1,值2,..),(值1,值2,..)..;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="8-1-2-给全部列添加数据"><a href="#8-1-2-给全部列添加数据" class="headerlink" title="8.1.2 给全部列添加数据"></a>8.1.2 给全部列添加数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名 values(值1,值2,..); </span><br><span class="line">-- 与8.1.1相比 省略具体列名 默认所有列</span><br></pre></td></tr></table></figure>
+<ul>
+<li>批量添加</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名  values(值1,值2,..),(值1,值2,..),(值1,值2,..)..</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-修改数据"><a href="#8-2-修改数据" class="headerlink" title="8.2 修改数据"></a>8.2 修改数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名 SET 属性列名1=值1,属性列名2=值2 [WHERE 条件]</span><br><span class="line">-- 中括号内容可省略 表示修改全部数据行</span><br></pre></td></tr></table></figure>
+<p><strong>修改示例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update student set age=26, address=&#x27;北京&#x27; where id=3;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-删除数据"><a href="#8-3-删除数据" class="headerlink" title="8.3 删除数据"></a>8.3 删除数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名  [WHERE 条件语句]</span><br><span class="line">-- 中括号内容可省略</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>truncate</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/miracle-luna/p/12041781.html">MySQL truncate()函数的使用说明 - 龙凌云端 - 博客园 (cnblogs.com)</a></li>
+<li><strong>truncate</strong>:<ul>
+<li>语法:truncate table 表名</li>
+<li>清空表内所有数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-DQL-数据查询语言-重点"><a href="#9-DQL-数据查询语言-重点" class="headerlink" title="9 DQL 数据查询语言 (重点)"></a>9 DQL 数据查询语言 (重点)</h2><h3 id="9-1-基础查询"><a href="#9-1-基础查询" class="headerlink" title="9.1 基础查询"></a>9.1 基础查询</h3><p><strong>1.查询指定列</strong></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段名1，字段名2，字段名 3， ... FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.查询所有列</strong></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.指定列的别名进行查询</strong></p>
+<p>  作用:<em>不改变表原本的结构,方便数据的展示</em></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select number AS 学号,name AS 姓名,tel AS 电话号码</span><br><span class="line">FROM</span><br><span class="line">student [AS 学生表]</span><br><span class="line">-- 最后中括号是指定表的别名</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.对某值进行唯一值筛选查询</strong></p>
+<p>  作用:<em>筛选重复记录,不删除原数据</em></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT name</span><br><span class="line">FROM</span><br><span class="line">student </span><br><span class="line">-- 姓名相同的行将会只显示一个</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2-条件查询-where"><a href="#9-2-条件查询-where" class="headerlink" title="9.2 条件查询(where)"></a>9.2 条件查询(where)</h3><p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列1,列2 FROM 表名 where 条件语句</span><br></pre></td></tr></table></figure>
+
+<p>条件语句表:</p>
+<table>
+<thead>
+<tr>
+<th align="center">条件符号</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;,&#x3D;,&gt;</td>
+<td align="center">小于等于大于</td>
+</tr>
+<tr>
+<td align="center">!&#x3D; , &lt;&gt;</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">&amp;&amp; , AND</td>
+<td align="center">且</td>
+</tr>
+<tr>
+<td align="center">|| , OR</td>
+<td align="center">或</td>
+</tr>
+<tr>
+<td align="center">IN (值1,值2,值3)</td>
+<td align="center">多选</td>
+</tr>
+<tr>
+<td align="center">IS NULL,IS NOT NULL</td>
+<td align="center">为空,不为空</td>
+</tr>
+<tr>
+<td align="center">BETWEEEN …AND</td>
+<td align="center">区间范围查询</td>
+</tr>
+<tr>
+<td align="center">LIKE</td>
+<td align="center">模糊查询</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><strong>部分详解</strong></p>
+<ul>
+<li><p><strong>like: 模糊查询</strong></p>
+<ul>
+<li><p>_  :下划线,模糊单字符</p>
+</li>
+<li><p>%:百分号,模糊多字符</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT  * FROM stu where name like &#x27;马%&#x27; ;</span><br><span class="line">-- 查询姓&quot;马&quot;的全部同学</span><br><span class="line">SELECT  * FROM stu where name like &#x27;马_&#x27; ;</span><br><span class="line">-- 查询姓&quot;马&quot;且为单名的全部同学</span><br><span class="line">SELECT  * FROM stu where name like &#x27;%德%&#x27; ;</span><br><span class="line">-- 查询名字里有 &quot;德&quot; 的同学全部同学</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-3-排序查询-order-by"><a href="#9-3-排序查询-order-by" class="headerlink" title="9.3 排序查询(order by)"></a><strong>9.3 排序查询(order by)</strong></h3><ul>
+<li>普通排序</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名1,列名2 FROM 表名 ORDER BY 排序依据列名 [DESC];</span><br><span class="line">-- 默认ASC升序,加 DESC 表示降序</span><br><span class="line">-- 示例</span><br><span class="line">SELECT name,math FROM stu ORDER BY MAth DESC;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>多条件排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT  * FROM stu ORDER BY age,math;</span><br><span class="line">-- 按年龄排序,若年龄相等时按数学成绩排序</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="9-4-分组查询-group-by"><a href="#9-4-分组查询-group-by" class="headerlink" title="9.4 分组查询(group by)"></a>9.4 分组查询(group by)</h3><h4 id="9-4-1-聚合函数"><a href="#9-4-1-聚合函数" class="headerlink" title="9.4.1 聚合函数"></a>9.4.1 聚合函数</h4><p>作用:<em><strong>将一列数据作为整体,进行纵向计算</strong></em></p>
+<p>注意:<strong>NULL值不参与任何集合函数运算! ! !</strong></p>
+<p>常用函数:</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">min(列名)</td>
+<td align="center">最小值</td>
+</tr>
+<tr>
+<td align="center">max(列名)</td>
+<td align="center">最大值</td>
+</tr>
+<tr>
+<td align="center">count(列名)</td>
+<td align="center">统计数量(一般排除null)</td>
+</tr>
+<tr>
+<td align="center">sum(列名)</td>
+<td align="center">求和</td>
+</tr>
+<tr>
+<td align="center">avg(列名)</td>
+<td align="center">求平均数</td>
+</tr>
+</tbody></table>
+<p>部分详解:</p>
+<ul>
+<li>count(列名)<ul>
+<li>1.主键  : 每一条数据都有</li>
+<li>2.* :只有该条目有一个不为空就入选,全为空也不该被统计</li>
+</ul>
+</li>
+</ul>
+<p>代码示例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT min(english) FROM stu ;</span><br><span class="line">-- 查询最低英语成绩</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-4-2-分组查询"><a href="#9-4-2-分组查询" class="headerlink" title="9.4.2 分组查询"></a>9.4.2 分组查询</h4><p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 目标列/聚合函数,... FROM 表名 [where 分组前条件] GROUP BY 分组字段 [HAVING 分组后条件];</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行顺序:</strong></p>
+<ul>
+<li><p>**1.先执行分组前筛选筛选(where) ** </p>
+</li>
+<li><p><strong>2.再分组(group by)</strong></p>
+</li>
+<li><p><strong>3.后执行函数(聚合函数)</strong></p>
+</li>
+<li><p><strong>4.分组后结果过滤条件(having)</strong></p>
+</li>
+</ul>
+<p>目标列要求: </p>
+<ul>
+<li>不分组的字段不应该插入 例如姓名.</li>
+<li>只能插入<strong>分组字段(前后统一)<strong>或</strong>聚合函数</strong></li>
+</ul>
+<p>代码示例1:</p>
+<p>要求:<strong>分组</strong>求<strong>男女</strong>同学的<strong>平均数学成绩</strong></p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-groupBY.png" alt="image-20220713160303031"></p>
+<p>代码示例2</p>
+<p>要求:分组求男女生数学平均成绩并分别统计人数,数学低于60不参与分组,最终人数小于两人的组不显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT sex,COUNT(sex),AVG(math)  FROM stu where math &gt;=60 GROUP BY sex HAVING COUNT(*) &gt; =2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-5-分页查询-LIMIT"><a href="#9-5-分页查询-LIMIT" class="headerlink" title="9.5 分页查询 LIMIT"></a>9.5 分页查询 LIMIT</h3><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名1,... FROM 表名 LIMIT 起始索引,查询条目数;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>分页查询原理:实现分页查询只需知道每一页的起始索引,每页显示的条目数固定</p>
+<ul>
+<li>起始索引: 从0开始</li>
+<li>计算公式: <ul>
+<li>起始索引 &#x3D; ( 页号 - 1 ) x 单页条目数</li>
+</ul>
+</li>
+</ul>
+<p>注意:</p>
+<ul>
+<li>LIMIT 是 MYSQL 的方言</li>
+<li>Oracle分页查询是rownumber</li>
+<li>SQL Server分页查询是 top</li>
+</ul>
+<h3 id="9-6-DQL-总结"><a href="#9-6-DQL-总结" class="headerlink" title="9.6 DQL 总结"></a>9.6 DQL 总结</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	字段列表</span><br><span class="line">FROM</span><br><span class="line">	表名</span><br><span class="line">WHERE</span><br><span class="line">	条件列表</span><br><span class="line">GROUP BY</span><br><span class="line">	分组字段</span><br><span class="line">HAVING </span><br><span class="line">	分组后条件</span><br><span class="line">ORDER BY</span><br><span class="line">	排序字段</span><br><span class="line">LIMIT </span><br><span class="line">	分页限制</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-约束"><a href="#10-约束" class="headerlink" title="10 约束"></a>10 约束</h2><h3 id="10-1-约束的概念"><a href="#10-1-约束的概念" class="headerlink" title="10.1 约束的概念"></a><strong>10.1 约束的概念</strong></h3><p>约束是作用于表中列上的规则,用于限制加入表的数据</p>
+<p>约束的作用:   约束的存在<strong>保证</strong>了数据库中<strong>数据的正确性,有效性,完整性</strong></p>
+<p><strong>约束的分类</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">约束名称</th>
+<th align="center">关键字</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">非空约束</td>
+<td align="center">NOT NULL</td>
+<td align="center">保证列中数据不能有null值</td>
+</tr>
+<tr>
+<td align="center">唯一约束</td>
+<td align="center">UNIQUE</td>
+<td align="center">保证列中数据各不相同</td>
+</tr>
+<tr>
+<td align="center">主键约束</td>
+<td align="center">PRIMARY KEY</td>
+<td align="center">行数据的唯一表示,非空 且 唯一</td>
+</tr>
+<tr>
+<td align="center">外键约束</td>
+<td align="center">FOREIGN KEY</td>
+<td align="center">使两个表之间的数据建立连接,保证数据一致性完整性</td>
+</tr>
+<tr>
+<td align="center">默认约束</td>
+<td align="center">DEFAULT</td>
+<td align="center">保存数据时,为指定值则使用默认值</td>
+</tr>
+<tr>
+<td align="center">检查约束</td>
+<td align="center">CHECK</td>
+<td align="center">保证列中的值满足某一条件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>其中, MYSQL 不支持检查约束 CHECK</p>
+<p>MySQL8.0以上支持check</p>
+</blockquote>
+<p><strong>auto_increment:</strong></p>
+<p>自增长约束,不给其赋值时自动依次填写,</p>
+<p>使用要求:数字类型 且 唯一约束 例如ID</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 员工表</span><br><span class="line">CREATE TABLE EMP (</span><br><span class="line">	ID INT PRIMARY KEY auto_increment, -- 员工工号 主键 自动递增</span><br><span class="line">	ename VARCHAR(50) NOT NULL, -- 员工姓名 非空</span><br><span class="line">	joindate DATE NOT NULL, -- 入职时间 非空</span><br><span class="line">	salary DOUBLE(7,2) NOT NULL, -- 薪水 非空</span><br><span class="line">	bonus DOUBLE(7,2) DEFAULT 0 -- 奖金，如果没有默认 0</span><br><span class="line">);</span><br><span class="line">-- INSERT INTO EMP(id,ename,joindate,salary,bonus) values (NULL,&#x27;张三&#x27;,&#x27;1999-11-11&#x27;,8000);</span><br><span class="line">INSERT INTO EMP(id,ename,joindate,salary) values (null,&#x27;张三&#x27;,&#x27;1999-11-11&#x27;,8000);</span><br><span class="line">-- 无bonus,默认 0 </span><br><span class="line"></span><br><span class="line">SELECT * FROM emp;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-2-外键约束"><a href="#10-2-外键约束" class="headerlink" title="10.2 外键约束"></a>10.2 外键约束</h3><p>作用:让两个表的数据建立连接,保证数据的一致性和完整性</p>
+<h4 id="10-2-1-添加外键"><a href="#10-2-1-添加外键" class="headerlink" title="10.2.1 添加外键"></a>10.2.1 添加外键</h4><ul>
+<li><p><strong>建表时</strong>添加约束</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">    ...</span><br><span class="line">    constraint 外键名称 foreign key(外键列名) references 主表名称(主表列名称)</span><br><span class="line">);</span><br><span class="line">-- referens 表示关联</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-- 部门表 </span><br><span class="line">CREATE TABLE dept (</span><br><span class="line">	id INT PRIMARY KEY auto_increment,</span><br><span class="line">	dep_name VARCHAR ( 20 ),</span><br><span class="line">	addr VARCHAR ( 20 )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 员工表</span><br><span class="line">-- 例如,将该表的dep_id设置为名为fk_emp_dept的外键,并将其关联至dept表的id列</span><br><span class="line">CREATE TABLE emp(</span><br><span class="line">    ...</span><br><span class="line">    dep_id INT,</span><br><span class="line">	constraint   fk_emp_dept  foreign key(dep_id)  references  dept(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>分别向 dept 和 emp表插入数据,产生关联后,不能删除有关联的部门,只能先开除相关员工再删除部门</p>
+</li>
+<li><p><strong>建表后</strong>添加约束</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter  table 表名 add constraint fk_emp_dept foreign key(dep_id) references dept(id);</span><br><span class="line">-- 与建表时语法相似 前面多出alter table 表名 add ...</span><br></pre></td></tr></table></figure>
+
+<p>可在navicat的对象中选中两个表逆向到模型,若两图相连则外键建立成功</p>
+</li>
+</ul>
+<h4 id="10-2-2-删除外键"><a href="#10-2-2-删除外键" class="headerlink" title="10.2.2 删除外键"></a>10.2.2 删除外键</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除外键</span><br><span class="line">alter table emp drop FOREIGN key fk_emp_dept;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-数据库设计"><a href="#11-数据库设计" class="headerlink" title="11 数据库设计"></a>11 数据库设计</h2><h3 id="11-1-数据库设计基本概念"><a href="#11-1-数据库设计基本概念" class="headerlink" title="11.1 数据库设计基本概念"></a>11.1 数据库设计基本概念</h3><p>目的:根据业务系统的具体要求,结合我们所选用的DBMS,为这个系统构造最佳数据存储模型</p>
+<p>内容:</p>
+<ul>
+<li>有哪些表?</li>
+<li>表内有哪些字段?</li>
+<li>表与表之间的关系?</li>
+</ul>
+<p>步骤:</p>
+<ul>
+<li>1.需求分析</li>
+<li>2.逻辑分析:实现E-R图</li>
+<li>3.物理设计:根据数据库特点把逻辑图转为物理设计</li>
+<li>4.维护设计:根据需求 新建表, 优化表</li>
+</ul>
+<h3 id="11-2-表关系"><a href="#11-2-表关系" class="headerlink" title="11.2 表关系"></a>11.2 表关系</h3><ul>
+<li><p><strong>1 对 1</strong>:多用于拆分表,将实体常用字段存入一张表,其它字段另一张表</p>
+<ul>
+<li>实例:人 和  身份证 </li>
+<li><strong>实现方法:在任意一方加入外键,关联另一方的主键,并设置外键为唯一(UNIQUE)</strong></li>
+<li>参考视频:<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Qf4y1T7Hx?p=23&spm_id_from=pageDriver&vd_source=de11b64b8e4a3110d2ee99cc02d0fc64">数据库多表关系实现 08:00</a></li>
+<li><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-1to1.png" alt="image-20220713234456049"></li>
+</ul>
+</li>
+<li><p><strong>1 对 多:</strong></p>
+<ul>
+<li>实例:部门 和 员工:一个部门有多个员工,一个员工对应一个部门</li>
+<li><strong>实现方法: 在多的一方建立外键,指向一的一方的主键</strong>  (例如 10.2.1 添加外键)</li>
+</ul>
+</li>
+<li><p><strong>多 对 多:</strong></p>
+<ul>
+<li><p>实例:订单 和 商品:一个商品对应多个订单,一个订单对应多个商品</p>
+</li>
+<li><p><strong>实现方法: 建立第三张中间表,中间表至少包含两个外键,分别关联两方主键</strong></p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/MySQL-NtoN.png" alt="image-20220713231013634"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-多表查询-重点"><a href="#12-多表查询-重点" class="headerlink" title="12 多表查询(重点)"></a>12 多表查询(重点)</h2><h3 id="12-1-简介"><a href="#12-1-简介" class="headerlink" title="12.1 简介"></a>12.1 简介</h3><p>概论:从多张表中查询数据</p>
+<p><strong>笛卡尔积</strong>:取 A , B 两表所有的组合情况,常包含无效信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp,dept;</span><br></pre></td></tr></table></figure>
+
+<p><strong>分类</strong></p>
+<ul>
+<li><p>连接查询</p>
+<ul>
+<li>内连接:相当于查询两个表的交集<ul>
+<li>隐式内连接</li>
+<li>显式内连接</li>
+</ul>
+</li>
+<li>外连接<ul>
+<li>左外连接:相当于查询<strong>A表</strong>所有数据和<strong>交集</strong>部分数据</li>
+<li>右外连接:相当于查询<strong>A表</strong>所有数据和<strong>交集</strong>部分数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>子查询:</p>
+</li>
+</ul>
+<h3 id="12-2-内连接-amp-外连接"><a href="#12-2-内连接-amp-外连接" class="headerlink" title="12.2 内连接&amp;外连接"></a>12.2 内连接&amp;外连接</h3><h4 id="12-2-1内连接"><a href="#12-2-1内连接" class="headerlink" title="12.2.1内连接"></a>12.2.1内连接</h4><ul>
+<li><p>隐式内连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 从两个表内查询所有数据,要求部门的id = 职员的部门id</span><br><span class="line">SELECT * FROM emp,dept where dept.id = emp.dep_id</span><br><span class="line"></span><br><span class="line">-- 从两个表内查询 部分 数据,要求部门的id = 职员的部门id</span><br><span class="line">SELECT name,age,dep_name FROM emp,dept where dept.id = emp.dep_id</span><br><span class="line"></span><br><span class="line">-- 给表取别名,将上面的代码美化,使结构更清晰</span><br><span class="line">SELECT t1.name,t1.age,t2.dep_name FROM emp t1,dept t2 where t2.id = t1.dep_id;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>显式内连接</p>
+<p>语法:   …. inner join 表名2 on 条件</p>
+<p>(其中 inner 可以省略)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp inner join dept on emp.dep_id = dept.id;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="12-2-2-外连接"><a href="#12-2-2-外连接" class="headerlink" title="12.2.2 外连接"></a>12.2.2 外连接</h4><p><strong>与内连接区别</strong>:</p>
+<ul>
+<li><p>除了显示交集外,还显示其他不参与交集的数据,</p>
+</li>
+<li><p>比如下方左连接的小白龙没有部门,不参与交集,但该连接是左连接,会显示emp表中不参与交集的数据</p>
+</li>
+</ul>
+<p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 左外连接 ,查询A表所有数据和交集部分数据,OUTER可省略</span><br><span class="line">SELECT 字段列表 FROM 表1  LEFT [OUTER] JOIN 表2 on 条件;</span><br><span class="line">-- 右外连接 ,查询B表所有数据和交集部分数据,OUTER可省略</span><br><span class="line">SELECT 字段列表 FROM 表1 RIGHT [OUTER] JOIN 表2 on 条件; </span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/MYSQL-LEFT-OUT.png" alt="image-20220714124455832"></p>
+<p><strong>注意</strong>:左外连接和右外连接可以互换,所以,<strong>一般仅使用左外连接即可</strong></p>
+<h3 id="12-3-子查询"><a href="#12-3-子查询" class="headerlink" title="12.3 子查询"></a>12.3 子查询</h3><p><strong>概念</strong></p>
+<ul>
+<li><p>查询中嵌套查询,简而言之,就是”套娃”</p>
+</li>
+<li><p>将多条相关的sql语句融合在一条sql语句之内</p>
+</li>
+</ul>
+<p><strong>分类</strong>:</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/mysql-child-query.png" alt="image-20220714133743194"></p>
+<p><strong>虚拟表</strong>:将一张表所晒选出的内容<strong>作为一张新的表</strong>(虚拟表) 放在  from 后面的表位上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from (select * from emp where join_date &gt; &#x27;2011-11-11&#x27;)t1,deptl where tl.dep_id =dept.did;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-4-数据库示例（重点）"><a href="#12-4-数据库示例（重点）" class="headerlink" title="12.4 数据库示例（重点）"></a>12.4 数据库示例（重点）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS emp;</span><br><span class="line">DROP TABLE IF EXISTS dept;</span><br><span class="line">DROP TABLE IF EXISTS job;</span><br><span class="line">DROP TABLE IF EXISTS Salarygrade;</span><br><span class="line">-- 部门表</span><br><span class="line">CREATE TABLE dept ( </span><br><span class="line">id INT PRIMARY KEY PRIMARY KEY, -- 部门id</span><br><span class="line">dname VARCHAR (50),-- 部门名称</span><br><span class="line">loc VARCHAR(50)-- 部门所在地</span><br><span class="line">);</span><br><span class="line">-- 职务表,职务名称,职务描述</span><br><span class="line">CREATE TABLE job (</span><br><span class="line">id INT PRIMARY KEY,</span><br><span class="line">jname VARCHAR(20),</span><br><span class="line">description VARCHAR (50)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 员工表</span><br><span class="line">CREATE TABLE emp (</span><br><span class="line">id INT PRIMARY KEY,-- 员工id</span><br><span class="line">ename VARCHAR(50),-- 员工姓名</span><br><span class="line">job_id INT,-- 务id</span><br><span class="line">mgr INT , -- 上级领导</span><br><span class="line">joindate DATE, -- 入职日期</span><br><span class="line">salary DECIMAL(7,2),-- 工资</span><br><span class="line">bonus DECIMAL(7,2),-- 奖金</span><br><span class="line">dept_id INT, -- 所在部门编号</span><br><span class="line">CONSTRAINT emp_jobid_ref_job_id_fk FOREIGN KEY (job_id) REFERENCES job (id),</span><br><span class="line">CONSTRAINT emp_deptid_ref_dept_id_fk FOREIGN KEY (dept_id) REFERENCES dept (id)</span><br><span class="line">);</span><br><span class="line">-- 工资等级表</span><br><span class="line">CREATE TABLE salarygrade (</span><br><span class="line">grade INT PRIMARY KEY,-- 级别</span><br><span class="line">losalary INT, -- 最低工资</span><br><span class="line">hisalary INT -- 最高工资</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 添加4个部门</span><br><span class="line">INSERT INTO dept(id,dname,loc) VALUES</span><br><span class="line">(10,&#x27;教研部&#x27;,&#x27;北京&#x27;),</span><br><span class="line">(20,&#x27;学工部&#x27;,&#x27;上海&#x27;),</span><br><span class="line">(30,&#x27;销售部&#x27;,&#x27;广州&#x27;),</span><br><span class="line">(40,&#x27;财务部&#x27;,&#x27;深圳&#x27;);</span><br><span class="line">-- 添加4个职务</span><br><span class="line">INSERT INTO job (id, jname, description) VALUES</span><br><span class="line">(1, &#x27;董事长&#x27;,&#x27;管理整个公司,接单&#x27;),</span><br><span class="line">(2,&#x27;经理&#x27;,&#x27;管理部门员工&#x27;),</span><br><span class="line">(3,&#x27;销售员&#x27;,&#x27;向客人推销产品&#x27;),</span><br><span class="line">(4,&#x27;文员&#x27;,&#x27;使用办公软件&#x27;);</span><br><span class="line"></span><br><span class="line">-- 添加职员</span><br><span class="line">INSERT INTO emp(id,ename,job_id,mgr,joindate,salary,bonus,dept_id) VALUES</span><br><span class="line">(1001,&#x27;孙悟空&#x27;,4,1004,&#x27;2000-12-17&#x27;,&#x27;8000.00&#x27;,NULL,20),</span><br><span class="line">(1002,&#x27;卢俊义&#x27;,3,1006,&#x27;2001-02-20&#x27;,&#x27;16000.00&#x27;,&#x27;3000.00&#x27;,30),</span><br><span class="line">(1003,&#x27;林冲&#x27;,3,1006,&#x27;2001-02-22&#x27;,&#x27;12500.00&#x27;,&#x27;5000.00&#x27;,30),</span><br><span class="line">(1004,&#x27;唐僧&#x27;,2,1009,&#x27;2001-04-02&#x27;,&#x27;29750.00&#x27;,NULL,20),</span><br><span class="line">(1005,&#x27;李逵&#x27;,4,1006,&#x27;2001-09-28&#x27;,&#x27;12500.00&#x27;,&#x27;14000.00&#x27;,30),</span><br><span class="line">(1006,&#x27;宋江&#x27;,2,1009,&#x27;2001-05-01&#x27;,&#x27;28500.00&#x27;,NULL,30),</span><br><span class="line">(1007,&#x27;刘雀&#x27;,2,1009,&#x27;2001-09-01&#x27;,&#x27;24500.00&#x27;,NULL,10),</span><br><span class="line">(1008,&#x27;猎八戒&#x27;,4,1004,&#x27;2007-04-19&#x27;,&#x27;30000.00&#x27;,NULL,20),</span><br><span class="line">(1009,&#x27;岁贯中&#x27;,1,NULL,&#x27;2001-11-17&#x27;,&#x27;50000.00&#x27;,NULL,10),</span><br><span class="line">(1010,&#x27;吴用&#x27;,3,1006,&#x27;2001-09-08&#x27;,&#x27;15000.00&#x27;,&#x27;0.00&#x27;,30),</span><br><span class="line">(1011,&#x27;沙僧&#x27;,4,1004,&#x27;2007-05-23&#x27;,&#x27;11000.00&#x27;,NULL,20),</span><br><span class="line">(1012,&#x27;李迪&#x27;,4,1006,&#x27;2001-12-03&#x27;,&#x27;9500.00&#x27;,NULL,30),</span><br><span class="line">(1013,&#x27;小白龙&#x27;,4,1004,&#x27;2001-12-03&#x27;,&#x27;30000.00&#x27;,NULL,20),</span><br><span class="line">(1014,&#x27;关羽&#x27;,4,1007,&#x27;2002-01-23&#x27;,&#x27;13000.00&#x27;,NULL,10);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 添加5个工资等级</span><br><span class="line">INSERT INTO Salarygrade(grade,losalary,hisalary) VALUES</span><br><span class="line">(1,7000,12000),</span><br><span class="line">(2,12010,14000),</span><br><span class="line">(3,14010,20000),</span><br><span class="line">(4,20010,30000),</span><br><span class="line">(5,30010,99990);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 需求1.查询所有员工信息。查询员工编号，员工姓名，工资，职务名称，职务描述</span><br><span class="line">/*</span><br><span class="line">分析：</span><br><span class="line">1．员工编号，员工姓名，工资 信息在emp 员工表中</span><br><span class="line">2．职务名称，职务描述 信息在 iob 职务表中</span><br><span class="line">3．job 职务表 和 emp 员工表是一对多的关系 emp.job_id = job.id</span><br><span class="line">*/</span><br><span class="line">-- 隐式内连接</span><br><span class="line">SELECT  emp.id, ename,salary,jname,description  FROM emp,job where emp.job_id = job.id;</span><br><span class="line"></span><br><span class="line">-- 显式内连接</span><br><span class="line">SELECT	emp.id, ename,salary,jname,description FROM emp JOIN job ON emp.job_id = job.id; </span><br><span class="line"></span><br><span class="line">-- 需求2.查询员工编号，员工姓名，工资，职务名称，职务描述，部门名称，部门位置</span><br><span class="line">-- 隐式内连接</span><br><span class="line">SELECT emp.id,emp.ename,job.jname,job.description,dept.dname,dept.loc FROM emp,job,dept WHERE emp.job_id = job.id AND emp.dept_id = dept.id;</span><br><span class="line">-- 显式内连接</span><br><span class="line">SELECT </span><br><span class="line">emp.id,emp.ename,job.jname,job.description,dept.dname,dept.loc </span><br><span class="line">FROM emp </span><br><span class="line">INNER JOIN job ON emp.job_id=job.id</span><br><span class="line">INNER JOIN dept ON emp.dept_id=dept.id;-- emp表 加入两个 INNER JOIN即可</span><br><span class="line"></span><br><span class="line">-- 3.查询员工姓名，工资，工资等级</span><br><span class="line">-- 隐式内连接</span><br><span class="line">SELECT  emp.ename,emp.salary,salarygrade.grade FROM emp,salarygrade WHERE emp.salary BETWEEN salarygrade.losalary AND salarygrade.hisalary;</span><br><span class="line">-- 显式内连接 </span><br><span class="line">SELECT  emp.ename,emp.salary,salarygrade.grade FROM emp JOIN salarygrade ON emp.salary BETWEEN salarygrade.losalary AND salarygrade.hisalary;</span><br><span class="line">-- 4.查询员工姓名，工资，职务名称，职务描述，部门名称，部门位置，工资等级</span><br><span class="line"></span><br><span class="line">-- 隐式内连接</span><br><span class="line">SELECT  emp.ename,emp.salary,job.jname,job.description,dept.dname,dept.loc,salarygrade.grade FROM emp,salarygrade,job,dept WHERE (emp.salary BETWEEN salarygrade.losalary AND salarygrade.hisalary) AND (emp.dept_id = dept.id AND emp.job_id = job.id);</span><br><span class="line">-- 显式内连接</span><br><span class="line">SELECT  emp.ename,emp.salary,job.jname,job.description,dept.dname,dept.loc,salarygrade.grade FROM emp</span><br><span class="line">JOIN job ON emp.job_id = job.id</span><br><span class="line">JOIN dept ON emp.dept_id = dept.id</span><br><span class="line">JOIN salarygrade ON emp.salary BETWEEN salarygrade.losalary AND salarygrade.hisalary</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 5.查询出部门编号、部门名称、部门位置、部门人数</span><br><span class="line">-- 方法1</span><br><span class="line">select dept.id,dept.dname,dept.loc,count(emp.dept_id = dept.id) AS 人数 FROM emp,dept WHERE emp.dept_id =dept.id GROUP BY dept.id;</span><br><span class="line">-- 方法2 虚拟表</span><br><span class="line"></span><br><span class="line">SELECT * FROM dept,(SELECT dept_id,count(*) FROM emp GROUP BY dept_id) t1  WHERE  t1.dept_id =dept.id;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="13-数据库事务"><a href="#13-数据库事务" class="headerlink" title="13 数据库事务"></a>13 数据库事务</h2><h3 id="13-1-简介"><a href="#13-1-简介" class="headerlink" title="13.1 简介"></a>13.1 简介</h3><ul>
+<li><p>数据库事务是一种机制，一个<strong>操作序列</strong>，包含<strong>一组数据库操作命令</strong></p>
+</li>
+<li><p>事务不可分隔，作为整体向系统提交&#x2F;撤销操作请求，要么同时成功，要么同时失败</p>
+</li>
+</ul>
+<p><strong>为什么要使用数据库事务？</strong></p>
+<p>下面是模拟张三向李四借500元的代码 ， 两人均有1000余额</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-- 创建账户表</span><br><span class="line">CREATE TABLE account(</span><br><span class="line">id int PRIMARY KEY auto_increment,</span><br><span class="line">name varchar(10),</span><br><span class="line">money double(10,2)</span><br><span class="line">);</span><br><span class="line">-- 添加数据</span><br><span class="line">INSERT INTO account (name,money) values(&#x27;张三&#x27;,1000),(&#x27;李四&#x27;,1000);</span><br><span class="line">select * from account;</span><br><span class="line"></span><br><span class="line">-- 重置金额</span><br><span class="line">UPDATE account set money = 1000;</span><br><span class="line"> </span><br><span class="line">-- 1.查询 李四 余额</span><br><span class="line"></span><br><span class="line">-- 2.李四金额减 500</span><br><span class="line">UPDATE account set money = money - 500 WHERE name = &#x27;李四&#x27;;</span><br><span class="line"></span><br><span class="line">-- 手动制造错误，使得之后的代码不再执行</span><br><span class="line">出错了</span><br><span class="line"></span><br><span class="line">-- 3.张三金额加 500</span><br><span class="line">UPDATE account set money = money + 500 WHERE name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">select * from account;</span><br><span class="line">-- 结果显示 李四只有500元 张三还是1000元,新建一个查询结果也一样</span><br></pre></td></tr></table></figure>
+
+<p>由结果可知，在执行过程中，总金额由2000 变为 1500 ，不符合逻辑，所以 ”数据库事务“ 出现了</p>
+<p><strong>引入事务Begin</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BEGIN;</span><br><span class="line">-- 1.查询 李四 余额</span><br><span class="line"></span><br><span class="line">-- 2.李四金额减 500</span><br><span class="line">UPDATE account set money = money - 500 WHERE name = &#x27;李四&#x27;;</span><br><span class="line"></span><br><span class="line">出错</span><br><span class="line">-- 3.张三金额加 500</span><br><span class="line">UPDATE account set money = money + 500 WHERE name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">select * from account;</span><br><span class="line">-- 结果：李四只有500元 张三还是1000元,但新建一个查询会发现两人都是1000</span><br></pre></td></tr></table></figure>
+
+<p>由结果可知，加入BEGIN；后,代码具有临时性，只在当前查询内生效</p>
+<p><strong>引入事务ROOLBACK</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BEGIN;</span><br><span class="line">-- 1.查询 李四 余额</span><br><span class="line"></span><br><span class="line">-- 2.李四金额减 500</span><br><span class="line">UPDATE account set money = money - 500 WHERE name = &#x27;李四&#x27;;</span><br><span class="line"></span><br><span class="line">出错</span><br><span class="line">-- 3.张三金额加 500</span><br><span class="line">UPDATE account set money = money + 500 WHERE name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">-- 插入 ROLLBACK</span><br><span class="line"></span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line">select * from account;</span><br><span class="line">-- 结果：两人都是1000</span><br></pre></td></tr></table></figure>
+
+<p>由结果可知，数据回归到未执行的状态</p>
+<p><strong>引入事务 COMMIT</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BEGIN;</span><br><span class="line">...</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+
+<p>COMMIT之后数据<em><strong>由临时性更改变为永久性更改</strong></em></p>
+<h3 id="13-2-基本语句"><a href="#13-2-基本语句" class="headerlink" title="13.2 基本语句"></a>13.2 基本语句</h3><ul>
+<li><p>开启事务:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BEGIN;</span><br><span class="line">-- 或者</span><br><span class="line">START TRANSACTION;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回滚事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="13-3-事务四大特征-面试"><a href="#13-3-事务四大特征-面试" class="headerlink" title="13.3 事务四大特征(面试)"></a>13.3 事务四大特征(面试)</h3><ul>
+<li>原子性(<strong>A</strong>tomic):事务是不可分隔的最小单位，要么同时成功，要么同时失败</li>
+<li>一致性(<strong>C</strong>onsistency):事务完成时，必须使所有数据保持一致（如上面的总金额不变，守恒原则）</li>
+<li>隔离性(<strong>I</strong>solation):多个事务之间，操作的可见性（不同查询窗口之间）</li>
+<li>持久性(<strong>D</strong>urability):事务一旦提交或回滚，它在数据库中的数据改变就是永久的</li>
+</ul>
+<h3 id="13-4-自动提交"><a href="#13-4-自动提交" class="headerlink" title="13.4 自动提交"></a>13.4 自动提交</h3><p>自动提交：<code>Autocommit;</code></p>
+<p><strong>含义</strong>：</p>
+<ul>
+<li><p>选中一条sql语句执行时会<strong>作为事务执行（相当于加上 BEGIN；和 COMMIT;）</strong></p>
+</li>
+<li><p>关闭自动提交后</p>
+<ul>
+<li>一句sql引起的<strong>数据变化只在当前窗口有效，其他窗口不变</strong></li>
+<li>只有执行<strong>COMMIT;之后才是永久修改数据</strong></li>
+</ul>
+</li>
+</ul>
+<p>查询事务是否自动提交？<br><code>SELECT @@autocommit;</code><br>关闭事务自动提交<br><code>SET autocommit = 0; </code></p>
+<p><strong>注意</strong></p>
+<ul>
+<li><p>MYSQL:默认自动提交</p>
+</li>
+<li><p>Oracle：默认手动提交</p>
+</li>
+</ul>
+
+                        
+
+                          
+        </div>
+        <div class="article-info article-info-index">
+          
+              
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-MYSQL - 数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                
+
+                  
+                    <p class="article-more-link">
+                      <a class="article-more-a" href="/2022/07/10/MYSQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">
+                        展开全文 >>
+                      </a>
+                    </p>
+                    
+
+                      
+                            <div class="clearfix"></div>
+        </div>
+  </div>
+</article>
+
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+        
+  
+    <article id="post-DOM-BOM"
+  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+          <!--  -->
+          
+            <a href="/2022/06/27/DOM-BOM/" class="archive-article-date">
+  	<time datetime="2022-06-27T10:16:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
+</a>
+              
+
+                <!-- 需要添加的位置 -->
+                <!-- 开始添加字数统计-->
+                
+                  <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+                    
+                      <!-- 添加完成 -->
+
+                      
+
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <center>
+              <p>
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2022/06/27/DOM-BOM/">DOM &amp; BOM</a>
+    </h1>
+  
+
+              </p>
+            </center>
+            
+                      <h1 id="1-DOM"><a href="#1-DOM" class="headerlink" title="1.DOM"></a>1.DOM</h1><h2 id="1-1-DOM-简介"><a href="#1-1-DOM-简介" class="headerlink" title="1.1 DOM 简介"></a>1.1 DOM 简介</h2><p>作用：通过DOM可以访问 JavaScript HTML 文档里的所有元素</p>
+<p>概念：当网页被加载时，浏览器会创建页面的<strong>文档对象模型</strong>（Document Object Model）</p>
+<p>DOM 树：</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/htmltree.gif" alt="DOM HTML tree"></p>
+<p>通过DOM，js获得能够创建动态HTML</p>
+<ul>
+<li>js能改变页面中所有HTML元素</li>
+<li>js能改变页面中所有HTML属性</li>
+<li>js能改变页面中所有CSS样式</li>
+<li>js能对页面中所有事件做出反馈</li>
+</ul>
+<h2 id="1-2-查找页面元素"><a href="#1-2-查找页面元素" class="headerlink" title="1.2 查找页面元素"></a>1.2 查找页面元素</h2><p>通过  <strong>ID</strong> 查找HTML元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x =  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>)</span><br><span class="line"><span class="comment">//查询ID为main的元素，只有唯一匹配元素。</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <strong>标签名</strong>  查找HTML元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y =  <span class="variable language_">document</span>.<span class="title function_">getElementByTagName</span>(<span class="string">&quot;p&quot;</span>)</span><br><span class="line"><span class="comment">//查询所有p标签，一个或多个匹配元素。</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <strong>类名</strong> 查找HTML元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> z =  <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&quot;title&quot;</span>)</span><br><span class="line"><span class="comment">//查询所有class为title的元素，一个或多个匹配元素。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-DOM改变HTML"><a href="#2-DOM改变HTML" class="headerlink" title="2.DOM改变HTML"></a>2.DOM改变HTML</h1><h2 id="2-1-改变HTML输出流"><a href="#2-1-改变HTML输出流" class="headerlink" title="2.1 改变HTML输出流"></a>2.1 改变HTML输出流</h2><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title class_">Date</span>());</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><strong>今天的日期是： Mon Jun 27 2022 19:04:24 GMT+0800 (中国标准时间)</strong></p>
+<p>注意</p>
+<p><strong>绝对不要在文档(DOM)加载完成之后使用 document.write()。这会覆盖该文档。</strong></p>
+<h2 id="2-2-改变HTML内容"><a href="#2-2-改变HTML内容" class="headerlink" title="2.2 改变HTML内容"></a>2.2 改变HTML内容</h2><ul>
+<li>直接改变</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p1&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;p1&quot;</span>).<span class="property">innerHTML</span>=<span class="string">&quot;新文本!&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>先定义变量在改变</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;header&quot;</span>&gt;</span>Old Header<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> element=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;header&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">element.<span class="property">innerHTML</span>=<span class="string">&quot;新标题&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-改变HTML属性"><a href="#2-3-改变HTML属性" class="headerlink" title="2.3 改变HTML属性"></a>2.3 改变HTML属性</h2><p>方法：document.getElementById(<em>id</em>).<em>attribute&#x3D;新属性值</em></p>
+<p>示例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;smiley.gif&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;image&quot;</span>).<span class="property">src</span>=<span class="string">&quot;landscape.jpg&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-DOM改变CSS"><a href="#3-DOM改变CSS" class="headerlink" title="3.DOM改变CSS"></a>3.DOM改变CSS</h1><h2 id="3-1改变HTML样式"><a href="#3-1改变HTML样式" class="headerlink" title="3.1改变HTML样式"></a>3.1改变HTML样式</h2><p>方法：document.getElementById(<em>id</em>).style.<em>property</em>&#x3D;<em>新样式</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p1&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p2&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;p2&quot;</span>).<span class="property">style</span>.<span class="property">color</span> = <span class="string">&quot;red&quot;</span></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;p2&quot;</span>).<span class="property">style</span>.<span class="property">fontSize</span> = <span class="string">&quot;30px&quot;</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/DOM%20&%20Css.png" alt="image-20220627191531216"></p>
+<h2 id="3-2-使用事件触发"><a href="#3-2-使用事件触发" class="headerlink" title="3.2 使用事件触发"></a>3.2 使用事件触发</h2><p>DOM 允许我们触发事件执行代码</p>
+<p>比如以下事件：</p>
+<ul>
+<li>元素被点击。</li>
+<li>页面加载完成。</li>
+<li>输入框被修改</li>
+<li>…</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ef<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p1&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;document.getElementById(&#x27;p1&#x27;).style.color=&#x27;red&#x27;&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-DOM-事件"><a href="#4-DOM-事件" class="headerlink" title="4.DOM 事件"></a>4.DOM 事件</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/dom-obj-event.html">HTML DOM 事件对象列表 | 菜鸟教程 (runoob.com)</a></p>
+<h2 id="4-1使用HTML元素分配"><a href="#4-1使用HTML元素分配" class="headerlink" title="4.1使用HTML元素分配"></a>4.1使用HTML元素分配</h2><p>向 HTML 元素分配 事件，您可以使用事件属性，例如[3.2 使用事件触发](# 3.2 使用事件触发)</p>
+<h2 id="4-2使用JS-DOM分配"><a href="#4-2使用JS-DOM分配" class="headerlink" title="4.2使用JS DOM分配"></a>4.2使用JS DOM分配</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=&quot;myBtn&quot;&gt;点这里执行displayDate()函数&lt;/button&gt;</span><br><span class="line">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;myBtn&quot;).onclick =function()&#123;displayDate()&#125; </span><br><span class="line">function displayDate()&#123;</span><br><span class="line">	document.getElementById(&quot;demo&quot;).innerHTML=Date();</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-onload-和-onunload-事件"><a href="#4-3-onload-和-onunload-事件" class="headerlink" title="4.3 onload 和 onunload 事件"></a>4.3 onload 和 onunload 事件</h2><p>onload 和 onunload 事件会在用户<strong>进入或离开页面</strong>时被触发。</p>
+<p>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。</p>
+<p>onload 和 onunload 事件可用于处理 cookie。</p>
+<h2 id="4-4-onchange"><a href="#4-4-onchange" class="headerlink" title="4.4 onchange"></a>4.4 onchange</h2><p>onchange 事件常结合对输入字段的验证来使用。</p>
+<p>下面是一个如何使用 onchange 的例子。当用户改变输入字段的内容时，会调用 upperCase() 函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fname&quot;</span> <span class="attr">onchange</span>=<span class="string">&quot;upperCase()&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-鼠标事件"><a href="#4-5-鼠标事件" class="headerlink" title="4.5 鼠标事件"></a>4.5 鼠标事件</h2><ul>
+<li><p>onmouseover：鼠标移至元素之上</p>
+</li>
+<li><p>onmouseout：鼠标移出</p>
+</li>
+<li><p>onmousedown：鼠标单机按下</p>
+</li>
+<li><p>onmouseup：鼠标单机按下后回弹</p>
+</li>
+<li><p>onclick：发生在鼠标回弹之后</p>
+</li>
+</ul>
+<h2 id="4-6-键盘事件"><a href="#4-6-键盘事件" class="headerlink" title="4.6 键盘事件"></a>4.6 键盘事件</h2><ul>
+<li><strong>onkeydown</strong>：键盘按键向下按</li>
+<li>onkeypress：按键按压。”对中文输入法，对非字符不敏感！“</li>
+<li><strong>onkeyup</strong>：键盘按键弹起</li>
+</ul>
+<h3 id="keycode表"><a href="#keycode表" class="headerlink" title="keycode表"></a>keycode表</h3><p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/keycode.png" alt="img"></p>
+<p>区别：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8f839f558319">详解键盘事件(keydown，keypress，keyup) - 简书 (jianshu.com)</a></p>
+<h3 id="按键事件示例"><a href="#按键事件示例" class="headerlink" title="按键事件示例"></a>按键事件示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;keydown&quot;</span>,keydown);</span><br><span class="line"><span class="comment">//键盘监听，注意：在非ie浏览器和非ie内核的浏览器</span></span><br><span class="line"><span class="comment">//参数1：表示事件，keydown:键盘向下按；参数2：表示要触发的事件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">keydown</span>(<span class="params">event</span>)&#123;</span><br><span class="line">    <span class="comment">//表示键盘监听所触发的事件，同时传递参数event</span></span><br><span class="line">    <span class="keyword">switch</span>(event.<span class="property">keyCode</span>)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">37</span>:</span><br><span class="line">            <span class="title function_">alert</span>(<span class="string">&quot;左键&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">39</span>:</span><br><span class="line">            <span class="title function_">alert</span>(<span class="string">&quot;右键&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-7-EventListener"><a href="#4-7-EventListener" class="headerlink" title="4.7 EventListener()"></a>4.7 EventListener()</h2><h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener()"></a>addEventListener()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(event,function,useCapture)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>参数1：事件类型(去掉on，如click,mouseover,mousedown…)</p>
+</li>
+<li><p>参数2：事件触发后调用的函数</p>
+</li>
+<li><p>参数3：布尔值，用于描述事件是冒泡还是捕获，可选。</p>
+</li>
+</ul>
+<h3 id="事件冒泡或事件捕获"><a href="#事件冒泡或事件捕获" class="headerlink" title="事件冒泡或事件捕获"></a>事件冒泡或事件捕获</h3><p>事件传递定义了元素事件触发的顺序， 如果你将 <p> 元素插入到 <div> 元素中，用户点击 <p> 元素, 哪个元素的 “click” 事件先被触发呢？</p>
+<ul>
+<li><strong>冒泡（默认）</strong>：内部元素的事件会先被触发，然后再触发外部元素，即： <p> 元素的点击事件先触发，然后会触发 <div> 元素的点击事件。</li>
+<li><strong>捕获</strong>：外部元素的事件会先被触发，然后才会触发内部元素的事件，即： <div> 元素的点击事件先触发 ，然后再触发 <p> 元素的点击事件。</li>
+</ul>
+<p>addEventListener() 方法可以指定 “useCapture” 参数来设置传递类型：默认冒泡false，true表示使用捕获。</p>
+
+                        
+
+                          
+        </div>
+        <div class="article-info article-info-index">
+          
+              
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                
+
+                  
+                    <p class="article-more-link">
+                      <a class="article-more-a" href="/2022/06/27/DOM-BOM/">
+                        展开全文 >>
+                      </a>
+                    </p>
+                    
+
+                      
+                            <div class="clearfix"></div>
+        </div>
+  </div>
+</article>
+
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+        
+  
+    <article id="post-JQuery知识框架"
+  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+          <!--  -->
+          
+            <a href="/2022/05/24/JQuery%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/" class="archive-article-date">
+  	<time datetime="2022-05-24T14:48:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-24</time>
+</a>
+              
+
+                <!-- 需要添加的位置 -->
+                <!-- 开始添加字数统计-->
+                
+                  <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">287字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+                    
+                      <!-- 添加完成 -->
+
+                      
+
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <center>
+              <p>
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2022/05/24/JQuery%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/">JQuery知识框架</a>
+    </h1>
+  
+
+              </p>
+            </center>
+            
+                      <h2 id="1-JQuery简介"><a href="#1-JQuery简介" class="headerlink" title="1 JQuery简介"></a>1 JQuery简介</h2><p>JQuery定位：javascript的库，是对javascript的一种封装</p>
+<p>JQuery作用：可以非常方便的操作html的元素（BOM）</p>
+<p>库（Library）和框架（Framework）的区别：</p>
+<p>共同点：都是第三方写好的程序，使用库和框架可以提升开发效率</p>
+<p>不同点：</p>
+<p>1.库更像是一个工具，拿过来就可以用。相对随意（JQuery）</p>
+<p>2.框架会对开发者的开发方式有一定限制，使用框架按照框架的规则开发项目（vue，react）</p>
+<h3 id="1-1-使用方法"><a href="#1-1-使用方法" class="headerlink" title="1.1 使用方法"></a>1.1 使用方法</h3><p>JQuery库下载链接:<a target="_blank" rel="noopener" href="https://gitee.com/xiaozhou_report/xiaozhou_fe_examples">点击下载</a></p>
+<p>或者直接使用CDN网络链接：</p>
+<p>格式如下</p>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+<ul>
+<li>Staticfile CDN：<a target="_blank" rel="noopener" href="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js</a></li>
+<li>百度 CDN：<a target="_blank" rel="noopener" href="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js</a></li>
+<li>新浪 CDN：<a target="_blank" rel="noopener" href="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js</a></li>
+</ul>
+<h2 id="2-JQuery-选择器"><a href="#2-JQuery-选择器" class="headerlink" title="2 JQuery 选择器"></a>2 JQuery 选择器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            $(<span class="string">&quot;#btn1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="comment">// 按元素类型选择</span></span><br><span class="line">                $(<span class="string">&quot;h1&quot;</span>).<span class="title function_">hide</span>();</span><br><span class="line">            &#125;)</span><br><span class="line">            $(<span class="string">&quot;#btn2&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="comment">// 按ID选择</span></span><br><span class="line">                $(<span class="string">&quot;#H2&quot;</span>).<span class="title function_">hide</span>();</span><br><span class="line">            &#125;)</span><br><span class="line">            $(<span class="string">&quot;#btn3&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="comment">// 按类名选择</span></span><br><span class="line">                $(<span class="string">&quot;.H3&quot;</span>).<span class="title function_">hide</span>();</span><br><span class="line">            &#125;)</span><br><span class="line">            $(<span class="string">&quot;#btn4&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="comment">// 按元素类型+类名选择</span></span><br><span class="line">                $(<span class="string">&quot;h4.h4_css&quot;</span>).<span class="title function_">hide</span>();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+                        
+
+                          
+        </div>
+        <div class="article-info article-info-index">
+          
+              
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                
+
+                  
+                    <p class="article-more-link">
+                      <a class="article-more-a" href="/2022/05/24/JQuery%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/">
+                        展开全文 >>
+                      </a>
+                    </p>
+                    
+
+                      
+                            <div class="clearfix"></div>
+        </div>
+  </div>
+</article>
+
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+        
+  
     <article id="post-Git版本控制系统使用教程"
   class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -238,7 +1328,7 @@
               </p>
             </center>
             
-                      <h2 id="1-Git简介"><a href="#1-Git简介" class="headerlink" title="1 Git简介"></a>1 Git简介</h2><p>定义：Git 是 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件</p>
+              <h2 id="1-Git简介"><a href="#1-Git简介" class="headerlink" title="1 Git简介"></a>1 Git简介</h2><p>定义：Git 是 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件</p>
 <p>作者：Linus Torvalds </p>
 <p>作用：</p>
 <ul>
@@ -248,7 +1338,12 @@
 <h2 id="2-Git-安装与配置"><a href="#2-Git-安装与配置" class="headerlink" title="2 Git 安装与配置"></a>2 Git 安装与配置</h2><h3 id="2-1-git-安装"><a href="#2-1-git-安装" class="headerlink" title="2.1 git 安装"></a>2.1 git 安装</h3><p>Git官网：<a target="_blank" rel="noopener" href="https://gitforwindows.org/">Git for Windows</a></p>
 <p>国内镜像：<a target="_blank" rel="noopener" href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">CNPM Binaries Mirror (npmmirror.com)</a></p>
 <h3 id="2-1-git-配置"><a href="#2-1-git-配置" class="headerlink" title="2.1 git 配置"></a>2.1 git 配置</h3>
-                        
+                
+                  <a class="article-more-a" href="/2022/05/10/Git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more">
+                    more >>
+                  </a>
+                  
+                    
 
                           
         </div>
@@ -357,254 +1452,16 @@
               </p>
             </center>
             
-                      <h2 id="1-小程序基础"><a href="#1-小程序基础" class="headerlink" title="1 小程序基础"></a>1 小程序基础</h2><h3 id="1-1赋值粘贴"><a href="#1-1赋值粘贴" class="headerlink" title="1.1赋值粘贴"></a><strong>1.1赋值粘贴</strong></h3><p>光标移动到指定行  不用选中整行文本 直接ctrl c  即可复制整行</p>
+              <h2 id="1-小程序基础"><a href="#1-小程序基础" class="headerlink" title="1 小程序基础"></a>1 小程序基础</h2><h3 id="1-1赋值粘贴"><a href="#1-1赋值粘贴" class="headerlink" title="1.1赋值粘贴"></a><strong>1.1赋值粘贴</strong></h3><p>光标移动到指定行  不用选中整行文本 直接ctrl c  即可复制整行</p>
 <p><strong>新建页面</strong></p>
 <p>在app.json的pages里面添加页面路径</p>
-<h3 id="1-2-文件类型介绍"><a href="#1-2-文件类型介绍" class="headerlink" title="1.2 文件类型介绍"></a>1.2 文件类型介绍</h3><p><strong>四大内容</strong></p>
-<p>wxss —css:样式</p>
-<p>wxml — html：框架</p>
-<p>js — js：逻辑</p>
-<p>json — json：结构</p>
-<p>utils:对全局继续配置的</p>
-<p>app.js  &#x2F;app.wxss &#x2F;app.json &#x2F;app.wxml:针对整个程序</p>
-<p>pages:里面每个文件夹代表一个页面</p>
-<p>每个页面都包含四大内容</p>
-<p>project.config.json : 整个项目的配置</p>
-<p>sitemap.json : 页面索引配置</p>
-<h3 id="1-3-html-与-wxml区别"><a href="#1-3-html-与-wxml区别" class="headerlink" title="1.3 html 与 wxml区别"></a>1.3 html 与 wxml区别</h3><p>有 view 没有 div</p>
-<p>有text 没有span</p>
-<p>双标签可以加斜杠转单标签<image/></p>
-<h2 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2  基本语法"></a>2  基本语法</h2><h3 id="hover"><a href="#hover" class="headerlink" title="hover"></a>hover</h3><p>hover-start-time&#x3D;”100” </p>
-<p>hover-stay-time&#x3D;”100”</p>
-<p>hover-stop-propagation：消除冒泡</p>
-<h3 id="space-属性"><a href="#space-属性" class="headerlink" title="space 属性"></a>space 属性</h3><p>连续多个空格：space 属性</p>
-<p>合法值：</p>
-<ul>
-<li><p>ensp：中文一半 <em>默认</em></p>
-</li>
-<li><p>emsp：中文大小</p>
-</li>
-<li><p>nbsp：有字体大小绝对</p>
-</li>
-</ul>
-<h3 id="decode-属性"><a href="#decode-属性" class="headerlink" title="decode 属性"></a>decode 属性</h3><p>decode：解码</p>
-<p><text decode>&amp;nbsp; </p>
-<p>show-menu-by-longpress:长按菜单</p>
-<p>页面跳转</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator class=&quot;link&quot; url=&quot;/pages/logs/logs&quot;&gt;导航跳转&lt;/navigator&gt;</span><br><span class="line">//其中url只能输入小程序链接不能输入外网例如网页链接(要不说垄断还是腾讯强)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>scroll-view</p>
-<p>滚动视图</p>
-<p>scroll-x：允许向x轴滚动</p>
-<p>scroll-y：允许向y轴滚动</p>
-<p>swiper：滚动栏</p>
-<img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/bannerview.png"  height="200px">
-
-<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><h4 id="button"><a href="#button" class="headerlink" title="button"></a>button</h4><p>open-type:</p>
-<p>contact:客服</p>
-<p>getPhoneNumber</p>
-<p>getUserInfo：采集用户信息</p>
-<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>placeholder-style：占位符样式</p>
-<p>placeholder-class：占位符样式表</p>
-<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>idcard：身份证键盘：X和数字</p>
-<p>password</p>
-<p>safe-password:</p>
-<p>安全键盘：</p>
-<p>安全键盘采用非对称加解密算法，该算法需要两个密钥，一个叫公钥，可以公开，另一个叫私钥，需要私密保管。</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/safe-password.html">安全键盘 | 微信开放文档 (qq.com)</a></p>
-<h3 id="process-进度条"><a href="#process-进度条" class="headerlink" title="process 进度条"></a>process 进度条</h3><p>active：动画</p>
-<p>activeColor：进度条颜色 backgroundColor背景颜色</p>
-<h2 id="3-全局配置"><a href="#3-全局配置" class="headerlink" title="3.全局配置"></a>3.全局配置</h2><p>全局配置文件：app.json</p>
-<h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><p>窗口设置</p>
-<h3 id="tabBar"><a href="#tabBar" class="headerlink" title="tabBar"></a>tabBar</h3><p>color：字体颜色</p>
-<p>list数组 ： 2 - 5个</p>
-<p>list 合法内容</p>
-<ul>
-<li><p>pagePath：跳转页面路径</p>
-</li>
-<li><p>text：导航提示</p>
-</li>
-<li><p>iconPath：未选中时图表样式</p>
-</li>
-<li><p>selectedIconPath：被选中图标样式</p>
-<p>图标路径不能是网络路径</p>
-</li>
-</ul>
-<h3 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h3><p>类似于全局配置，只是具体到某个页面的配置</p>
-<p>直接在每个页面json文件的大括号里添加内容</p>
-<h2 id="4-wxs基础内容"><a href="#4-wxs基础内容" class="headerlink" title="4.wxs基础内容"></a>4.wxs基础内容</h2><h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>data：存放页面初始化数据</p>
-<p>字符串 &#x2F; 数组 &#x2F; 对象等各类数据…</p>
-<p>使用方法：放在双花括号里面 </p>
-<p>代码示例</p>
-<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/wxdatavisit.png" alt="image-20220506204551177"></p>
-<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/wxdatasrc.png" alt="image-20220506204708664"></p>
-<p>效果：</p>
-<p><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/result.png" alt="image-20220506204753285"></p>
-<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p>wx:if</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- 条件渲染 --&gt;</span><br><span class="line">&lt;!-- 在js文件中设置初始化数据day的值为2--&gt;</span><br><span class="line">&lt;view wx:if = &quot;&#123;&#123;day==1&#125;&#125;&quot;&gt;周一&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==2&#125;&#125;&quot;&gt;周二&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==3&#125;&#125;&quot;&gt;周三&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==4&#125;&#125;&quot;&gt;周四&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==5&#125;&#125;&quot;&gt;周五&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==6&#125;&#125;&quot;&gt;周六&lt;/view&gt;</span><br><span class="line">&lt;view wx:elif = &quot;&#123;&#123;day==7&#125;&#125;&quot;&gt;周天&lt;/view&gt;</span><br><span class="line">&lt;view wx:else&gt;数据错误&lt;/view&gt;</span><br><span class="line">&lt;!-- 输出周二 --&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>block 和 view 区别</p>
-<p>block会使内部分散且和外面同级</p>
-<p>view会使内部和并为一块来与外面同级</p>
-<h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><p>wx:for</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;10&#125;&#125;&quot;&gt;埃里奥特的小木屋&lt;/view&gt;</span><br><span class="line">//循环十次该元素内容</span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123;listArr&#125;&#125;&quot; wx:for-index=&quot;i&quot; wx:for-item=&quot;content&quot;&gt;&#123;&#123;i&#125;&#125;:&#123;&#123;content&#125;&#125;&lt;/view&gt;</span><br><span class="line">//自定义 索引值 和 内容项 的标识符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123;listObj&#125;&#125;&quot; &gt;</span><br><span class="line">阶段&#123;&#123;index+1&#125;&#125;:&#123;&#123;item.title&#125;&#125; 时间:&#123;&#123;item.time&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">///数组对象的循环读取</span><br><span class="line"></span><br><span class="line">wx：key=&quot;this&quot;</span><br><span class="line">wx：key=&quot;index&quot;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Page页面的生命周期和各项函数"><a href="#Page页面的生命周期和各项函数" class="headerlink" title="Page页面的生命周期和各项函数"></a>Page页面的生命周期和各项函数</h3><ul>
-<li><p>生命周期函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options) &#123;</span><br><span class="line">  console.log(&quot;监听页面加载&quot;)</span><br><span class="line">  // 第一次打开页面时的加载 </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面初次渲染完成</span><br><span class="line">   */</span><br><span class="line">  onReady() &#123;</span><br><span class="line">    console.log(&quot;监听页面初次渲染完成&quot;)</span><br><span class="line">    // 第一次打开页面时的界面渲染</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面显示</span><br><span class="line">   */</span><br><span class="line">  onShow() &#123;</span><br><span class="line">    console.log(&quot;监听页面显示状态&quot;)</span><br><span class="line">    // 每次显示该页面时</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面隐藏</span><br><span class="line">   */</span><br><span class="line">  onHide() &#123;</span><br><span class="line">    console.log(&quot;监听页面隐藏时&quot;)</span><br><span class="line">    //切后台等</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 生命周期函数--监听页面卸载</span><br><span class="line">   */</span><br><span class="line">  onUnload() &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 页面相关事件处理函数--监听用户下拉动作</span><br><span class="line">   */</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>其他常见函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">onPullDownRefresh() &#123;</span><br><span class="line">  console.log(&quot;监听页面下拉&quot;)</span><br><span class="line">  // 在页面足够高时 达到底部会执行</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 页面上拉触底事件的处理函数</span><br><span class="line">   */</span><br><span class="line">  onReachBottom() &#123;</span><br><span class="line">  console.log(&quot;到达底部啦&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 用户点击右上角分享</span><br><span class="line">   */</span><br><span class="line">  onShareAppMessage() &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>自定义函数</p>
-</li>
-</ul>
-<p>在相应元素绑定触发事件： bind事件名 &#x3D; “方法名”</p>
-<p>例如：单机事件触发 bindtap&#x3D;“方法名”</p>
-<p>方法名在js里面和onload同级</p>
-<p>如果待跳转的页面在tarBar中是无法跳转的</p>
-<p>函数设置参数(例如function（res）)</p>
-<p>此时事件对象包含事件里面的所有信息，其中<strong>currentTarget</strong>很常用</p>
-<p>传递数据:在元素里设置<strong>data-名称&#x3D;”字符串”</strong>  再去js里面<em>res.currentTarget.dataset</em>.名称即可引用值</p>
-<p>注意：data后面的名称一般是自动全转为小写，如果有-自动转驼峰</p>
-<p>改变数据<br>function（res）{<br>var mingcheng &#x3D; <img src="file:///C:\Users\豪大大\AppData\Roaming\Tencent\QQTempSys%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img">res.currentTarget.dataset.name<br>}</p>
-<p>改变初始化数据<br>this.setData(){<br>   name:mingcheng<br>   ….<br>}</p>
-<p><strong>综合运用</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//wxs 函数设置</span><br><span class="line">Tap1(res)&#123;</span><br><span class="line">    // 错误方法：data是私有数据 可以用于获取 不可用于修改</span><br><span class="line">    // this.data.name = &quot;jsj&quot;</span><br><span class="line">    // 正确方法：如果要修改只能这样操作</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      &quot;name&quot;:&quot;马云&quot;</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(this.data.name)</span><br><span class="line">  &#125;,</span><br><span class="line"> //wxml设置</span><br><span class="line"> &lt;view bindtap=&quot;Tap1&quot; data-title= &quot;口令&quot;&gt;click me！&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view style=&quot;height: 100px;width: 100px;background-color: beige;&quot;&gt; </span><br><span class="line">&#123;&#123;name&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-API"><a href="#5-API" class="headerlink" title="5.API"></a>5.API</h2><h3 id="获取设备数据"><a href="#获取设备数据" class="headerlink" title="获取设备数据"></a>获取设备数据</h3><ul>
-<li><p>获取机型</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wx.getSystemInfoSync(&#123;</span><br><span class="line"></span><br><span class="line">  success: (result) =&gt; &#123;&#125;,</span><br><span class="line"></span><br><span class="line"> &#125;).model</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p><strong>跳转页面</strong></p>
-<p>方法1：navigator url</p>
-<p>方法2：元素bindtap  wx.navigateTo()</p>
-<p><strong>跳转tab标签页</strong></p>
-<p>方法1：navigator open-type&#x3D;”switchTab”</p>
-<p>方法2：元素bindtap  wx.switchTab()</p>
-<p><strong>带参数跳转</strong></p>
-<p>wx.reLaunch</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.reLaunch(&#123;</span><br><span class="line">   url: &#x27;/pages/logs/logs?id=&quot;123&quot; &#x27;,</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>返回页面</strong></p>
-<p>使用navigateTo的可以用navigateBack返回</p>
-<h3 id="网络：十分重要！！！"><a href="#网络：十分重要！！！" class="headerlink" title="网络：十分重要！！！"></a>网络：十分重要！！！</h3><h4 id="布局页面模拟数据请求"><a href="#布局页面模拟数据请求" class="headerlink" title="布局页面模拟数据请求"></a>布局页面模拟数据请求</h4><p>demo6</p>
-<h4 id="API-request网请求"><a href="#API-request网请求" class="headerlink" title="API request网请求"></a>API request网请求</h4><p>demo6</p>
-<h2 id="6-ES6"><a href="#6-ES6" class="headerlink" title="6.ES6"></a>6.ES6</h2><ul>
-<li><p>function(n&#x3D;1)：没有传入值时p等于1，有传入在等于传入值</p>
-</li>
-<li><p>引引加加变量引用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;张三&quot;</span></span><br><span class="line"><span class="keyword">var</span> gender = <span class="string">&quot;男生&quot;</span></span><br><span class="line"><span class="comment">//错误：var str = &quot;我的姓名是name，我是sex&quot;</span></span><br><span class="line"><span class="comment">//正确：引引加加 ，&quot;+变量名称+&quot;</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;我的姓名是&quot;</span>+name+<span class="string">&quot;，我是&quot;</span>+gender+<span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>￥{}变量引用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">111</span>,<span class="number">222</span>,<span class="number">333</span>,<span class="number">444</span>]</span><br><span class="line">[a,b,,d]= arr</span><br><span class="line"><span class="comment">//此时 a=111，b=222，d=44</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">obj = &#123;</span><br><span class="line">    name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">    gender = <span class="string">&quot;male&quot;</span></span><br><span class="line">    age = <span class="number">18</span></span><br><span class="line">    job = <span class="string">&quot;Java工程师&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> &#123;name，job&#125; = data</span><br><span class="line"><span class="comment">//可以无需赋值 但名称一定相同</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>箭头函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法1</span></span><br><span class="line"><span class="attr">fun1</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="property">log</span></span><br><span class="line"><span class="comment">//方法2,箭头函数</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>&#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>for循环</p>
-<p>forEach</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">111</span>,<span class="number">222</span>,<span class="number">333</span>,<span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> newArr =[]</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item,idx</span>)=&gt;</span>&#123;</span><br><span class="line">    item = item + <span class="string">&quot;小程序&quot;</span></span><br><span class="line">    newArr.<span class="title function_">push</span>(item)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>map</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">111</span>,<span class="number">222</span>,<span class="number">333</span>,<span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> newArr =arr.<span class="title function_">map</span>(item)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> item + <span class="string">&quot;小程序&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>数组连接</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//老方法</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">111</span>,<span class="number">222</span>,<span class="number">333</span>,<span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>,<span class="string">&quot;ccc&quot;</span>]</span><br><span class="line">arr1 = arr1.<span class="title function_">concat</span>(arr2)</span><br><span class="line"><span class="comment">//新方法 用...展开数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">111</span>, <span class="number">222</span>, <span class="number">333</span>, <span class="number">444</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;bbb&quot;</span>, <span class="string">&quot;ccc&quot;</span>]</span><br><span class="line"><span class="keyword">var</span> newArr = [...arr1,...arr2]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="7-组件的创建与使用"><a href="#7-组件的创建与使用" class="headerlink" title="7 组件的创建与使用"></a>7 组件的创建与使用</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>1.在根目录下创建一个存放组件的文件夹</p>
-<p>2.在该文件夹里创建一个某组件的文件夹(组件首字母大写以示不同)</p>
-<p>3.右键单击，点击component创建组件内容</p>
-<p>4.向组件文件里编写代码或者复制已有代码</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>1.在需要使用该组件的页面的json文件的usingComponent里面写如<strong>启用组件的关键词和路径</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;usingComponents&quot;: &#123;</span><br><span class="line">    &quot;Protop&quot;:&quot;/components/Protop/Protop&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.在该界面的wxml文件里添加组件代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Protop/&gt;</span><br><span class="line">//或者</span><br><span class="line">&lt;Protop&gt;&lt;/Protop&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><p>1.组件和引用组件的页面不能使用的选择器,请<strong>改为class选择器</strong></p>
-<ul>
-<li>id选择器(#a)</li>
-<li>属性选择器( [a] )</li>
-<li>标签名选择器 ( image )</li>
-<li>子选择器(.a &gt; .b):只能用于view组件与其子节点之间</li>
-</ul>
-<h3 id="自定义组件传递属性"><a href="#自定义组件传递属性" class="headerlink" title="自定义组件传递属性"></a>自定义组件传递属性</h3><h4 id="data和properties区别"><a href="#data和properties区别" class="headerlink" title="data和properties区别"></a>data和properties区别</h4><p>properties：组件的<strong>对外属性</strong>，是属性名到属性设置的映射表</p>
-<p>data：组件的<strong>内部数据</strong>，和 <code>properties</code> 一同用于组件的模板渲染</p>
-<h4 id="传递方法"><a href="#传递方法" class="headerlink" title="传递方法"></a>传递方法</h4><p>1.在自定义组件上传递自定义属性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;PubTitle myTitle=&quot;行业动态&quot;/&gt;</span><br><span class="line">tag=&quot;&#123;&#123;[&#x27;佛教圣地&#x27;,&#x27;金顶佛光&#x27;,&#x27;云海&#x27;,&#x27;雪景&#x27;]&#125;&#125;&quot; //数组的传入</span><br></pre></td></tr></table></figure>
-
-<p>2.在自定义组件的<strong>js文件</strong>的properties里添加该对外属性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">  myTitle:&#123;</span><br><span class="line">    type:String,</span><br><span class="line">    value:&quot;暂未添加内容&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  //type是传值类型；（String，Array，Number，Obeject）</span><br><span class="line">  //value是默认值</span><br><span class="line">  //强烈建议不要使用简化方法 要用上面这种带数据类型定义的方法！</span><br></pre></td></tr></table></figure>
-
-<p>3.在自定义组件的<strong>wxml文件</strong>里用渲染数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;txt&quot;&gt;&#123;&#123;myTitle&#125;&#125;&lt;/view&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="8-网络请求数据"><a href="#8-网络请求数据" class="headerlink" title="8 网络请求数据"></a>8 网络请求数据</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
-<li><ol>
-<li>可以用console.log(res)查看返回结果</li>
-<li>调试台的AppData也可以查看数据</li>
-<li>数据请求函数可以设置在onLoad的时候</li>
-<li>wxml里面常用wx：for对某个组件循环，以实现多个对象的导入</li>
-<li>item表示每个对象，index表示下标值</li>
-</ol>
-</li>
-</ul>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>1.js里面的data里设置要循环数组的名称</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">   dynamicList:[]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>2.wxml文件里设置整个组件的循环，各个元素修改为php接口里面的属性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator class=&quot;dyItem&quot; wx:for=&quot;&#123;&#123;dynamicList&#125;&#125;&quot; wx:key=&quot;index&quot;&gt;&lt;view class=&quot;pic&quot;&gt;</span><br><span class="line">          &lt;image src=&quot;&#123;&#123;item.picurl&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">        &lt;/view&gt;</span><br><span class="line">        &lt;view class=&quot;txt&quot;&gt;</span><br><span class="line">        &lt;view class=&quot;title&quot;&gt;&#123;&#123;item.title&#125;&#125;&lt;/view&gt;</span><br><span class="line">          </span><br><span class="line">         &lt;view class=&quot;info&quot;&gt;&lt;text&gt;作者：&lt;/text&gt;&#123;&#123;item.author&#125;&#125;&lt;text space=&quot;emsp&quot;&gt; - &lt;/text&gt; &lt;text&gt;时间：&lt;/text&gt;&#123;&#123;item.posttime&#125;&#125;&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
-
-<p>3.js里面可以在onload时发起请求数据，如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">onLoad: function (options) &#123;</span><br><span class="line">    // 在页面加载时请求数据,获取行业动态列表</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: &#x27;https://ku.qingnian8.com/school/list.php&#x27;,</span><br><span class="line">      success:res=&gt;&#123;</span><br><span class="line">        //res是一个形参而已 表示返回的结果</span><br><span class="line">        console.log(res.data)</span><br><span class="line">        // 在控制台打印出结果 可以看到里面的data是需要的数据</span><br><span class="line">        this.setData(&#123;</span><br><span class="line">          dynamicList:res.data</span><br><span class="line">        &#125;)</span><br><span class="line">        // 若获取成功便将dynamicList的数据修改为导入的数据</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><h4 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h4><p>本质：1970-1-1 到 现在所经过的时间</p>
-<p>单位：</p>
-<ul>
-<li>php：秒数</li>
-<li>js：毫秒数</li>
-</ul>
-<h2 id="9-ES6-模块化"><a href="#9-ES6-模块化" class="headerlink" title="9 ES6 模块化"></a>9 ES6 模块化</h2><p>utils：一般把公用js文件放入utils文件夹，再通过export返回出去</p>
-<p>1.在utils里面新建一个js文件</p>
-<p>2.可以在js里定义一个对象，对象里面定义多个函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var common = &#123;</span><br><span class="line">  getStrLen: function (str, len) &#123;</span><br><span class="line">    // 限制标题字符串的长度</span><br><span class="line">    if (str.length &gt; len) &#123;</span><br><span class="line">      return str.substr(0, len) + &quot;...&quot;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return str</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getMyDate: function (date) &#123;</span><br><span class="line">    let _date = new Date(parseInt(date) * 1000);//10位</span><br><span class="line">    let y = _date.getFullYear();</span><br><span class="line">    let m = _date.getMonth() + 1;</span><br><span class="line">    m = m &lt; 10 ? (&#x27;0&#x27; + m) : m;//使月号统一为两位数</span><br><span class="line">    let d = _date.getDate();</span><br><span class="line">    d = d &lt; 10 ? (&#x27;0&#x27; + d) : d;//使日号统一为两位数</span><br><span class="line">    </span><br><span class="line">    let dates = y + &#x27;-&#x27; + m + &#x27;-&#x27; + d;//年月日</span><br><span class="line">    return dates</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3.在js文件里的对象外面出口该对象，让其他页面可以进口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">module.exports = common</span><br><span class="line">//common是对象名</span><br></pre></td></tr></table></figure>
-
-<p>4.在所需要该函数组的js文件里进口该函数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import common from &quot;../../utils/common&quot;;</span><br><span class="line">//import 后面的第一个common是启用关键词</span><br><span class="line">//路径只能是相对路径</span><br></pre></td></tr></table></figure>
-
-<p>5.在所需地方使用 <strong>启用关键词.函数名(参数1，…)</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.title = common.getStrLen(title,3);</span><br></pre></td></tr></table></figure>
-
-
-                        
+<h3 id="1-2-文件类型介绍"><a href="#1-2-文件类型介绍" class="headerlink" title="1.2 文件类型介绍"></a>1.2 文件类型介绍</h3>
+                
+                  <a class="article-more-a" href="/2022/05/04/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/#more">
+                    more >>
+                  </a>
+                  
+                    
 
                           
         </div>
@@ -1200,7 +2057,7 @@ G(DOM)-->H(观察者)-->I(js对象)</pre>
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">444字</span>
+      <span class="post-count">580字</span>
     </span>
   </span>
 
@@ -1209,7 +2066,7 @@ G(DOM)-->H(观察者)-->I(js对象)</pre>
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -1273,364 +2130,6 @@ G(DOM)-->H(观察者)-->I(js对象)</pre>
                   
                     <p class="article-more-link">
                       <a class="article-more-a" href="/2022/03/28/VSCode%E4%BC%98%E8%B4%A8%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/">
-                        展开全文 >>
-                      </a>
-                    </p>
-                    
-
-                      
-                            <div class="clearfix"></div>
-        </div>
-  </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-  
-    <article id="post-计算机网络关键词详解"
-  class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-          <!--  -->
-          
-            <a href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%B3%E9%94%AE%E8%AF%8D%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2022-03-27T07:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
-</a>
-              
-
-                <!-- 需要添加的位置 -->
-                <!-- 开始添加字数统计-->
-                
-                  <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">2.1k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">7分</span>
-    </span>
-  </span>
-</div>
-
-                    
-                      <!-- 添加完成 -->
-
-                      
-
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <center>
-              <p>
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%B3%E9%94%AE%E8%AF%8D%E8%AF%A6%E8%A7%A3/">计算机网络关键词</a>
-    </h1>
-  
-
-              </p>
-            </center>
-            
-              <p><em><strong>本篇博客按照户根勤先生的<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26941639/">网络是怎样连接的</a>一书的目录进行的排版，如需快速查找请使用业内查找快捷键Ctrl F</strong></em></p>
-<h2 id="1-浏览器生成消息"><a href="#1-浏览器生成消息" class="headerlink" title="1.浏览器生成消息"></a>1.<em>浏览器生成消息</em></h2><ul>
-<li><p><em><strong>URL</strong></em>：统一资源定位符(Uniform Resource Locator)</p>
-                
-                  <a class="article-more-a" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%B3%E9%94%AE%E8%AF%8D%E8%AF%A6%E8%A7%A3/#more">
-                    more >>
-                  </a>
-                  
-                    
-
-                          
-        </div>
-        <div class="article-info article-info-index">
-          
-              
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                
-
-                  
-                    <p class="article-more-link">
-                      <a class="article-more-a" href="/2022/03/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%B3%E9%94%AE%E8%AF%8D%E8%AF%A6%E8%A7%A3/">
-                        展开全文 >>
-                      </a>
-                    </p>
-                    
-
-                      
-                            <div class="clearfix"></div>
-        </div>
-  </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-  
-    <article id="post-Java基本语法总结"
-  class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-          <!--  -->
-          
-            <a href="/2022/03/20/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-03-20T08:30:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-              
-
-                <!-- 需要添加的位置 -->
-                <!-- 开始添加字数统计-->
-                
-                  <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">423字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-                    
-                      <!-- 添加完成 -->
-
-                      
-
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <center>
-              <p>
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2022/03/20/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/">Java基本语法总结</a>
-    </h1>
-  
-
-              </p>
-            </center>
-            
-              <h2 id="Java注释"><a href="#Java注释" class="headerlink" title="Java注释"></a>Java注释</h2><p>1.单行注释 : 双斜杠&#x2F;&#x2F;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;hello world&quot;</span>);<span class="comment">//java文本输出</span></span><br></pre></td></tr></table></figure>
-                
-                  <a class="article-more-a" href="/2022/03/20/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/#more">
-                    more >>
-                  </a>
-                  
-                    
-
-                          
-        </div>
-        <div class="article-info article-info-index">
-          
-              
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                
-
-                  
-                    <p class="article-more-link">
-                      <a class="article-more-a" href="/2022/03/20/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/">
-                        展开全文 >>
-                      </a>
-                    </p>
-                    
-
-                      
-                            <div class="clearfix"></div>
-        </div>
-  </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-  
-    <article id="post-JAVA语言简介与运行原理"
-  class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-          <!--  -->
-          
-            <a href="/2022/03/19/JAVA%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B%E4%B8%8E%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-03-19T09:00:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-19</time>
-</a>
-              
-
-                <!-- 需要添加的位置 -->
-                <!-- 开始添加字数统计-->
-                
-                  <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">708字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-
-                    
-                      <!-- 添加完成 -->
-
-                      
-
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <center>
-              <p>
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2022/03/19/JAVA%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B%E4%B8%8E%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/">JAVA语言简介与运行原理</a>
-    </h1>
-  
-
-              </p>
-            </center>
-            
-              <h2 id="Java语言简介"><a href="#Java语言简介" class="headerlink" title="Java语言简介"></a>Java语言简介</h2><h3 id="历史发展"><a href="#历史发展" class="headerlink" title="历史发展"></a>历史发展</h3><img src="https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/goslingjava.png" width="100%">
-
-<p>原始名称： Oka<br>发明时间：1995</p>
-                
-                  <a class="article-more-a" href="/2022/03/19/JAVA%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B%E4%B8%8E%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/#more">
-                    more >>
-                  </a>
-                  
-                    
-
-                          
-        </div>
-        <div class="article-info article-info-index">
-          
-              
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                
-
-                  
-                    <p class="article-more-link">
-                      <a class="article-more-a" href="/2022/03/19/JAVA%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B%E4%B8%8E%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/">
                         展开全文 >>
                       </a>
                     </p>
@@ -1925,6 +2424,30 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BOM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-MYSQL - 数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
             
             <div class="clearfix"></div>
