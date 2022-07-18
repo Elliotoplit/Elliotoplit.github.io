@@ -1,3 +1,5 @@
+http://elliotoplit.github.io/2022/07/16/JDBC-API%E8%AF%A6%E8%A7%A3/
+http://elliotoplit.github.io/2022/07/16/Idea%E7%B2%BE%E5%93%81%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/
 http://elliotoplit.github.io/2022/03/19/JAVA%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B%E4%B8%8E%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/
 http://elliotoplit.github.io/2022/03/20/Java%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/
 http://elliotoplit.github.io/2022/05/24/JQuery%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/
@@ -51,3 +53,7 @@ http://elliotoplit.github.io/tags/%E5%89%8D%E7%AB%AF/
 http://elliotoplit.github.io/tags/JQuery/
 http://elliotoplit.github.io/tags/MYSQL/
 http://elliotoplit.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
+http://elliotoplit.github.io/tags/Idea/
+http://elliotoplit.github.io/tags/JDBC/
+http://elliotoplit.github.io/tags/API/
+http://elliotoplit.github.io/tags/JAVA/
